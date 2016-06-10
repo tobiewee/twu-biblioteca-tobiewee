@@ -54,7 +54,26 @@ public class ExampleTest {
 
     @Test
     public void testPrintBookDetails() {
-        Book book = new Book();
-        assertEquals("Title | Author | Year", app.printBookDetails(book));
+        Book book = new Book("Coding in TDD", "Jump Kitten", "2016");
+        String expected = book.toString();
+
+        app.printBookDetails(book);
+        assertEquals(expected, testOutStream.toString());
+    }
+
+    @Test
+    public void testListBookDetails() {
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        bookList.add(new Book("Jump in TDD", "Unknown", "2017"));
+
+        StringBuilder expected = new StringBuilder();
+        for(Book book: bookList) {
+            expected.append("- ");
+            expected.append(book.toString());
+            expected.append("\n");
+        }
+
+        app.listBookDetails(bookList);
+        assertEquals(expected.toString(), testOutStream.toString());
     }
 }

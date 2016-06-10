@@ -15,7 +15,7 @@ public class BibliotecaApp {
     }
 
     public void printBookDetails(Book book) {
-
+        System.out.printf(book.toString());
     }
 
     public static void main(String[] args) {
