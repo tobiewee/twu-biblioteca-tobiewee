@@ -5,7 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.lang.model.type.ArrayType;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -13,15 +12,12 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class ExampleTest {
-    private BibliotecaApp app;
     private PrintStream originalOutStream;
     private ByteArrayOutputStream testOutStream;
     private ArrayList<String> menuOptions;
 
     @Before
     public void setUp() {
-        app = new BibliotecaApp();
-
         originalOutStream = System.out;
         testOutStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(testOutStream));
@@ -38,7 +34,7 @@ public class ExampleTest {
     @Test
     public void testDisplayWelcomeMessage() {
         String expectedMessage = "Welcome to Biblioteca!\n";
-        app.displayWelcomeMessage();
+        BibliotecaApp.displayWelcomeMessage();
         String outputMessage =  testOutStream.toString();
         assertEquals(expectedMessage, outputMessage);
     }
@@ -51,10 +47,11 @@ public class ExampleTest {
 
         StringBuilder expectedMessage = new StringBuilder();
         for(String title: books) {
-            expectedMessage.append(title + "\n");
+            expectedMessage.append(title);
+            expectedMessage.append("\n");
         }
 
-        app.listBooks(books);
+        BibliotecaApp.listBooks(books);
         String outputMessage =  testOutStream.toString();
 
         assertEquals(expectedMessage.toString(), outputMessage);
@@ -65,7 +62,7 @@ public class ExampleTest {
         Book book = new Book("Coding in TDD", "Jump Kitten", "2016");
         String expected = book.toString();
 
-        app.printBookDetails(book);
+        BibliotecaApp.printBookDetails(book);
         assertEquals(expected, testOutStream.toString());
     }
 
@@ -80,7 +77,7 @@ public class ExampleTest {
             expected.append(book.toString());
         }
 
-        app.listBookDetails(bookList);
+        BibliotecaApp.listBookDetails(bookList);
         assertEquals(expected.toString(), testOutStream.toString());
     }
 
@@ -102,21 +99,21 @@ public class ExampleTest {
     @Test
     public void testCheckoutBook() {
         Book book = new Book("Test", "Tester", "2016");
-        app.checkoutBook(book);
+        BibliotecaApp.checkoutBook(book);
         assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
         testOutStream.reset();
-        app.checkoutBook(book);
+        BibliotecaApp.checkoutBook(book);
         assertEquals("That book is not available.\n", testOutStream.toString());
     }
 
     @Test
     public void testReturnBook() {
         Book book = new Book("Test", "Tester", "2016");
-        app.returnBook(book);
+        BibliotecaApp.returnBook(book);
         assertEquals("That is not a valid book to return.\n", testOutStream.toString());
         testOutStream.reset();
         book.checkoutBook();
-        app.returnBook(book);
+        BibliotecaApp.returnBook(book);
         assertEquals("Thank you for returning the book.\n", testOutStream.toString());
     }
 
@@ -129,7 +126,7 @@ public class ExampleTest {
             expected.append(String.format("%d. %s\n", optNum, option));
         }
 
-        app.showMenuOptions(menuOptions);
+        BibliotecaApp.showMenuOptions(menuOptions);
         assertEquals(expected.toString(), testOutStream.toString());
     }
 
@@ -141,8 +138,10 @@ public class ExampleTest {
         for(String option: menuOptions) {
             expected.append(String.format("%d. %s\n", optNum, option));
         }
+        expected.append("-----\n");
+        expected.append("Select option, and press Enter: ");
 
-        app.showMainMenu(menuOptions);
+        BibliotecaApp.showMainMenu(menuOptions);
         assertEquals(expected.toString(), testOutStream.toString());
     }
 }
