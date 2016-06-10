@@ -80,15 +80,25 @@ public class ExampleTest {
     }
 
     @Test
-    public void testShowMainMenu() {
-        String expected = "Main Menu:\n1. List Books\nChoice: ";
-        app.showMainMenu();
-        assertEquals(expected, testOutStream.toString());
+    public void testBookClassCheckoutBook() {
+        Book book = new Book("Test", "Tester", "2016");
+        assertEquals(true, book.checkoutBook());
+        assertEquals(false, book.checkoutBook());
     }
 
     @Test
-    public void testInvalidMenuOption() {
-        app.invalidMenuOption();
-        assertEquals("Select a valid option!\n", testOutStream.toString());
+    public void testBookClassReturnBook() {
+        Book book = new Book("Test", "Tester", "2016");
+        assertEquals(false, book.returnBook());
+    }
+
+    @Test
+    public void testCheckoutBook() {
+        Book book = new Book("How to checkout?", "Test Driver", "2016");
+        app.checkoutBook(book);
+        assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
+        testOutStream.reset();
+        app.checkoutBook(book);
+        assertEquals("That book is not available.\n", testOutStream.toString());
     }
 }

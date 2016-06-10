@@ -8,6 +8,7 @@ public class Book {
     private String title;
     private String author;
     private String year;
+    private boolean onLoan;
 
     public Book(String title, String author, String year) {
         this.title = title;
@@ -18,5 +19,11 @@ public class Book {
     public String toString() {
         return String.format("%-" + T_COL + "s | %-" + A_COL + "s | %-" +
                 Y_COL + "s\n", title, author, year);
+    }
+
+    public boolean checkoutBook() {
+        if(onLoan) return false;
+        onLoan = true;
+        return onLoan;
     }
 }

@@ -24,14 +24,12 @@ public class BibliotecaApp {
         }
     }
 
-    public void showMainMenu() {
-        System.out.print("Main Menu:\n");
-        System.out.print("1. List Books\n");
-        System.out.print("Choice: ");
-    }
-
-    public void invalidMenuOption() {
-        System.out.print("Select a valid option!\n");
+    public void checkoutBook(Book book) {
+        boolean checkedout = book.checkoutBook();
+        if(checkedout)
+            System.out.print("Thank you! Enjoy the book\n");
+        else
+            System.out.print("That book is not available.\n");
     }
 
     public static void main(String[] args) {
