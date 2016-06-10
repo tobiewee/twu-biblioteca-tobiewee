@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.lang.model.type.ArrayType;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class ExampleTest {
     private BibliotecaApp app;
     private PrintStream originalOutStream;
     private ByteArrayOutputStream testOutStream;
+    private ArrayList<String> menuOptions;
 
     @Before
     public void setUp() {
@@ -23,6 +25,9 @@ public class ExampleTest {
         originalOutStream = System.out;
         testOutStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(testOutStream));
+
+        menuOptions = new ArrayList<String>();
+        menuOptions.add("List books");
     }
 
     @After
@@ -113,5 +118,31 @@ public class ExampleTest {
         book.checkoutBook();
         app.returnBook(book);
         assertEquals("Thank you for returning the book.\n", testOutStream.toString());
+    }
+
+    @Test
+    public void testShowMenuOptions() {
+        StringBuilder expected = new StringBuilder();
+        int optNum = 1;
+
+        for(String option: menuOptions) {
+            expected.append(String.format("%d. %s\n", optNum, option));
+        }
+
+        app.showMenuOptions(menuOptions);
+        assertEquals(expected.toString(), testOutStream.toString());
+    }
+
+    @Test
+    public void testShowMainMenu() {
+        StringBuilder expected = new StringBuilder();
+        int optNum = 1;
+        expected.append("Main Menu:\n");
+        for(String option: menuOptions) {
+            expected.append(String.format("%d. %s\n", optNum, option));
+        }
+
+        app.showMainMenu(menuOptions);
+        assertEquals(expected.toString(), testOutStream.toString());
     }
 }

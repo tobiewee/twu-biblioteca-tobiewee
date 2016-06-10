@@ -40,6 +40,18 @@ public class BibliotecaApp {
             System.out.print("That is not a valid book to return.\n");
     }
 
+    public void showMenuOptions(ArrayList<String> menuOptions) {
+        int optNum = 1;
+        for(String option: menuOptions) {
+            System.out.print(String.format("%d. %s\n", optNum, option));
+        }
+    }
+
+    public void showMainMenu(ArrayList<String> menuOptions) {
+        System.out.print("Main Menu:\n");
+        showMenuOptions(menuOptions);
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello, world!");
     }
