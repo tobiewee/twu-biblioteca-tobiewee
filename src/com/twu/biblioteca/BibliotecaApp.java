@@ -24,6 +24,11 @@ public class BibliotecaApp {
         }
     }
 
+    public void showMainMenu() {
+        System.out.print("Main Menu:\n");
+        System.out.print("1. List Books\n");
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello, world!");
     }

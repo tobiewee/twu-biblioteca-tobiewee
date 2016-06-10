@@ -44,12 +44,15 @@ public class ExampleTest {
         books.add("Hello World");
         books.add("My First TDD Program");
 
-        String expectedMessage = "Hello World\nMy First TDD Program\n";
+        StringBuilder expectedMessage = new StringBuilder();
+        for(String title: books) {
+            expectedMessage.append(title + "\n");
+        }
 
         app.listBooks(books);
         String outputMessage =  testOutStream.toString();
 
-        assertEquals(expectedMessage, outputMessage);
+        assertEquals(expectedMessage.toString(), outputMessage);
     }
 
     @Test
@@ -78,7 +81,8 @@ public class ExampleTest {
 
     @Test
     public void testShowMainMenu() {
-        String expected = "Main Menu:\n1. List Books";
+        String expected = "Main Menu:\n1. List Books\n";
+        app.showMainMenu();
         assertEquals(expected, testOutStream.toString());
     }
 }
