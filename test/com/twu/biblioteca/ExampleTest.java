@@ -90,15 +90,28 @@ public class ExampleTest {
     public void testBookClassReturnBook() {
         Book book = new Book("Test", "Tester", "2016");
         assertEquals(false, book.returnBook());
+        book.checkoutBook();
+        assertEquals(true, book.returnBook());
     }
 
     @Test
     public void testCheckoutBook() {
-        Book book = new Book("How to checkout?", "Test Driver", "2016");
+        Book book = new Book("Test", "Tester", "2016");
         app.checkoutBook(book);
         assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
         testOutStream.reset();
         app.checkoutBook(book);
         assertEquals("That book is not available.\n", testOutStream.toString());
+    }
+
+    @Test
+    public void testReturnBook() {
+        Book book = new Book("Test", "Tester", "2016");
+        app.returnBook(book);
+        assertEquals("That is not a valid book to return.\n", testOutStream.toString());
+        testOutStream.reset();
+        book.checkoutBook();
+        app.returnBook(book);
+        assertEquals("Thank you for returning the book.\n", testOutStream.toString());
     }
 }

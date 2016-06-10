@@ -32,6 +32,14 @@ public class BibliotecaApp {
             System.out.print("That book is not available.\n");
     }
 
+    public void returnBook(Book book) {
+        boolean returned = book.returnBook();
+        if(returned)
+            System.out.print("Thank you for returning the book.\n");
+        else
+            System.out.print("That is not a valid book to return.\n");
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello, world!");
     }

@@ -14,6 +14,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.year = year;
+        onLoan = false;
     }
 
     public String toString() {
@@ -25,5 +26,11 @@ public class Book {
         if(onLoan) return false;
         onLoan = true;
         return onLoan;
+    }
+
+    public boolean returnBook() {
+        if(!onLoan) return false;
+        onLoan = false;
+        return !onLoan;
     }
 }
