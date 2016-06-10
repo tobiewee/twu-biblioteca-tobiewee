@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,6 +19,7 @@ public class ExampleTest {
     @Before
     public void setUp() {
         app = new BibliotecaApp();
+
         originalOutStream = System.out;
         testOutStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(testOutStream));
@@ -38,6 +40,21 @@ public class ExampleTest {
 
     @Test
     public void testListBooks() {
-        assertEquals(0, app.bookList.size());
+        ArrayList<String> books = new ArrayList<String>();
+        books.add("Hello World");
+        books.add("My First TDD Program");
+
+        String expectedMessage = "- Hello World\n- My First TDD Program\n";
+
+        app.listBooks(books);
+        String outputMessage =  testOutStream.toString();
+
+        assertEquals(expectedMessage, outputMessage);
+    }
+
+    @Test
+    public void testPrintBookDetails() {
+        Book book = new Book();
+        assertEquals("Title | Author | Year", app.printBookDetails(book));
     }
 }
