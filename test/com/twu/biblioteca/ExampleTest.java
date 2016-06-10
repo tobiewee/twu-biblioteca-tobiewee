@@ -81,8 +81,14 @@ public class ExampleTest {
 
     @Test
     public void testShowMainMenu() {
-        String expected = "Main Menu:\n1. List Books\n";
+        String expected = "Main Menu:\n1. List Books\nChoice: ";
         app.showMainMenu();
         assertEquals(expected, testOutStream.toString());
+    }
+
+    @Test
+    public void testInvalidMenuOption() {
+        app.invalidMenuOption();
+        assertEquals("Select a valid option!\n", testOutStream.toString());
     }
 }
