@@ -44,7 +44,7 @@ public class ExampleTest {
         books.add("Hello World");
         books.add("My First TDD Program");
 
-        String expectedMessage = "- Hello World\n- My First TDD Program\n";
+        String expectedMessage = "Hello World\nMy First TDD Program\n";
 
         app.listBooks(books);
         String outputMessage =  testOutStream.toString();
@@ -65,15 +65,20 @@ public class ExampleTest {
     public void testListBookDetails() {
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(new Book("Jump in TDD", "Unknown", "2017"));
+        bookList.add(new Book("Mouse loves cat", "Rubbish Author", "2020"));
 
         StringBuilder expected = new StringBuilder();
         for(Book book: bookList) {
-            expected.append("- ");
             expected.append(book.toString());
-            expected.append("\n");
         }
 
         app.listBookDetails(bookList);
         assertEquals(expected.toString(), testOutStream.toString());
+    }
+
+    @Test
+    public void testShowMainMenu() {
+        String expected = "Main Menu:\n1. List Books";
+        assertEquals(expected, testOutStream.toString());
     }
 }

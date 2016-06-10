@@ -10,12 +10,18 @@ public class BibliotecaApp {
 
     public void listBooks(ArrayList<String> bookList) {
         for(String title: bookList) {
-            System.out.printf("- %s\n", title);
+            System.out.printf("%s\n", title);
         }
     }
 
     public void printBookDetails(Book book) {
         System.out.printf(book.toString());
+    }
+
+    public void listBookDetails(ArrayList<Book> bookList) {
+        for(Book book: bookList) {
+            printBookDetails(book);
+        }
     }
 
     public static void main(String[] args) {
