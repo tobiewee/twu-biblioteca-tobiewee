@@ -58,15 +58,13 @@ public class BibliotecaApp {
     static boolean checkSelectionValid(ArrayList<String> menuItems) {
         Scanner userInput = new Scanner(System.in);
         String selection = userInput.next();
-        int selectionValue = -1;
+        int selectionValue;
         try{
             selectionValue = Integer.parseInt(selection);
         } catch (NumberFormatException e){
             return false;
         }
-        if(selectionValue>0 && selectionValue<=menuItems.size())
-            return true;
-        return false;
+        return selectionValue > 0 && selectionValue <= menuItems.size();
     }
 
     public static void main(String[] args) {
