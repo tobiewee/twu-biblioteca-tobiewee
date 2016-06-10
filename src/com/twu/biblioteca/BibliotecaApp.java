@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class BibliotecaApp {
 
@@ -52,6 +53,20 @@ public class BibliotecaApp {
         showMenuOptions(menuOptions);
         System.out.print("-----\n");
         System.out.print("Select option, and press Enter: ");
+    }
+
+    static boolean checkSelectionValid(ArrayList<String> menuItems) {
+        Scanner userInput = new Scanner(System.in);
+        String selection = userInput.next();
+        int selectionValue = -1;
+        try{
+            selectionValue = Integer.parseInt(selection);
+        } catch (NumberFormatException e){
+            return false;
+        }
+        if(selectionValue>0 && selectionValue<=menuItems.size())
+            return true;
+        return false;
     }
 
     public static void main(String[] args) {

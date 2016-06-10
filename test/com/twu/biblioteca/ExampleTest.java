@@ -5,11 +5,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ExampleTest {
     private PrintStream originalOutStream;
@@ -143,5 +146,28 @@ public class ExampleTest {
 
         BibliotecaApp.showMainMenu(menuOptions);
         assertEquals(expected.toString(), testOutStream.toString());
+    }
+
+    @Test
+    public void testCheckSelectionValid() {
+        ByteArrayInputStream testInput = new ByteArrayInputStream("1".getBytes());
+        InputStream original = System.in;
+
+        System.setIn(testInput);
+        assertEquals(true, BibliotecaApp.checkSelectionValid(menuOptions));
+
+        testInput = new ByteArrayInputStream("H".getBytes());
+        System.setIn(testInput);
+        assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
+
+        testInput = new ByteArrayInputStream("0".getBytes());
+        System.setIn(testInput);
+        assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
+
+        testInput = new ByteArrayInputStream("100".getBytes());
+        System.setIn(testInput);
+        assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
+
+        System.setIn(original);
     }
 }

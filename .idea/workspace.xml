@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7955d1d5-3a44-4df8-9870-5c38c64a359e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BibliotecaApp.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BibliotecaApp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" />
@@ -32,11 +31,12 @@
           <file leaf-file-name="BibliotecaApp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="452">
-                  <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+                <state relative-caret-position="870">
+                  <caret line="66" column="47" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
                   <folding>
-                    <element signature="e#1738#1746#0" expanded="true" />
-                    <element signature="e#1843#1849#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#2233#2241#0" expanded="true" />
+                    <element signature="e#2338#2344#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -59,12 +59,12 @@
           <file leaf-file-name="ExampleTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="313">
-                  <caret line="140" column="32" selection-start-line="140" selection-start-column="32" selection-end-line="140" selection-end-column="32" />
+                <state relative-caret-position="474">
+                  <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#725#726#0" expanded="true" />
-                    <element signature="e#773#774#0" expanded="true" />
+                    <element signature="e#833#834#0" expanded="true" />
+                    <element signature="e#881#882#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -94,8 +94,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Menu.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
       </list>
     </option>
   </component>
@@ -574,38 +574,45 @@
       <option name="project" value="LOCAL" />
       <updated>1465559238605</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Some cleanup, test program in main">
+      <created>1465560306153</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1465560306153</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ExampleTest - 2016.06.10 at 18h 52m 49s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 32m 31s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 18h 53m 10s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 33m 04s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 19h 38m 50s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 33m 31s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 19h 46m 16s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 35m 19s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 19h 51m 01s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 35m 50s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 19h 54m 14s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 37m 23s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 19h 55m 09s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 39m 07s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 19h 55m 53s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 39m 36s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 19h 56m 32s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 39m 58s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.10 at 20h 04m 41s.xml">
+    <history-entry file="ExampleTest - 2016.06.10 at 20h 40m 05s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -654,7 +661,8 @@
     <MESSAGE value="Checkout Book" />
     <MESSAGE value="Return Book" />
     <MESSAGE value="Re-add Main Menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-add Main Menu" />
+    <MESSAGE value="Some cleanup, test program in main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some cleanup, test program in main" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -670,8 +678,9 @@
         <state relative-caret-position="616">
           <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
           <folding>
-            <element signature="e#1738#1746#0" expanded="true" />
-            <element signature="e#1843#1849#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2233#2241#0" expanded="true" />
+            <element signature="e#2338#2344#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -682,8 +691,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -697,25 +706,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="140" column="32" selection-start-line="140" selection-start-column="32" selection-end-line="140" selection-end-column="32" />
+        <state relative-caret-position="870">
+          <caret line="66" column="47" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#2233#2241#0" expanded="true" />
+            <element signature="e#2338#2344#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="474">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
-            <element signature="e#1738#1746#0" expanded="true" />
-            <element signature="e#1843#1849#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
           </folding>
         </state>
       </provider>
