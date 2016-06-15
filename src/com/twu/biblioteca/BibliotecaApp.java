@@ -67,6 +67,17 @@ public class BibliotecaApp {
         return selectionValue > 0 && selectionValue <= menuItems.size();
     }
 
+    static int findBookByTitle(String title, ArrayList<Book> bookList){
+        int idx = -1;
+        for(Book book : bookList){
+            idx++;
+            if(title.equals(book.getTitle())) {
+                return idx;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         // Setup of some "pre-existing" data.
         ArrayList<String> mainMenuItemList = new ArrayList<String>();

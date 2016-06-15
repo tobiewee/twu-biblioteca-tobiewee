@@ -17,12 +17,17 @@ public class ExampleTest {
     private PrintStream originalOutStream;
     private ByteArrayOutputStream testOutStream;
     private ArrayList<String> menuOptions;
+    private ArrayList<Book> bookList;
 
     @Before
     public void setUp() {
         originalOutStream = System.out;
         testOutStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(testOutStream));
+
+        bookList = new ArrayList<Book>();
+        bookList.add(new Book("Jump in TDD", "Unknown", "2017"));
+        bookList.add(new Book("Mouse loves cat", "Rubbish Author", "2020"));
 
         menuOptions = new ArrayList<String>();
         menuOptions.add("List books");
@@ -70,10 +75,6 @@ public class ExampleTest {
 
     @Test
     public void testListBookDetails() {
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        bookList.add(new Book("Jump in TDD", "Unknown", "2017"));
-        bookList.add(new Book("Mouse loves cat", "Rubbish Author", "2020"));
-
         StringBuilder expected = new StringBuilder();
         for(Book book: bookList) {
             expected.append(book.toString());
@@ -99,7 +100,7 @@ public class ExampleTest {
     }
 
     @Test
-    public void testCheckoutBook() {
+    public void testCheckoutBook() { //to be updated/changed.
         Book book = new Book("Test", "Tester", "2016");
         BibliotecaApp.checkoutBook(book);
         assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
@@ -109,7 +110,7 @@ public class ExampleTest {
     }
 
     @Test
-    public void testReturnBook() {
+    public void testReturnBook() { //to be updated/changed.
         Book book = new Book("Test", "Tester", "2016");
         BibliotecaApp.returnBook(book);
         assertEquals("That is not a valid book to return.\n", testOutStream.toString());
@@ -168,5 +169,13 @@ public class ExampleTest {
         assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
 
         System.setIn(original);
+    }
+
+    @Test
+    public void testFindBookByTitle(){
+        String title0 = "Jump in TDD";
+        String title1 = "Mouse loves cat";
+        assertEquals(0, BibliotecaApp.findBookByTitle(title0, bookList));
+        assertEquals(1, BibliotecaApp.findBookByTitle(title1, bookList));
     }
 }
