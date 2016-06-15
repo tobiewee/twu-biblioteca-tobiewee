@@ -100,23 +100,23 @@ public class ExampleTest {
     }
 
     @Test
-    public void testCheckoutBook() { //to be updated/changed.
+    public void testCheckoutBookByBook() { //to be updated/changed.
         Book book = new Book("Test", "Tester", "2016");
-        BibliotecaApp.checkoutBook(book);
+        BibliotecaApp.checkoutBookByBook(book);
         assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
         testOutStream.reset();
-        BibliotecaApp.checkoutBook(book);
+        BibliotecaApp.checkoutBookByBook(book);
         assertEquals("That book is not available.\n", testOutStream.toString());
     }
 
     @Test
-    public void testReturnBook() { //to be updated/changed.
+    public void testReturnBookByBook() { //to be updated/changed.
         Book book = new Book("Test", "Tester", "2016");
-        BibliotecaApp.returnBook(book);
+        BibliotecaApp.returnBookByBook(book);
         assertEquals("That is not a valid book to return.\n", testOutStream.toString());
         testOutStream.reset();
         book.checkoutBook();
-        BibliotecaApp.returnBook(book);
+        BibliotecaApp.returnBookByBook(book);
         assertEquals("Thank you for returning the book.\n", testOutStream.toString());
     }
 

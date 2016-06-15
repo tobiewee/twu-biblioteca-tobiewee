@@ -25,7 +25,7 @@ public class BibliotecaApp {
         }
     }
 
-    static void checkoutBook(Book book) {
+    static void checkoutBookByBook(Book book) {
         boolean checkedout = book.checkoutBook();
         if(checkedout)
             System.out.print("Thank you! Enjoy the book\n");
@@ -33,7 +33,7 @@ public class BibliotecaApp {
             System.out.print("That book is not available.\n");
     }
 
-    static void returnBook(Book book) {
+    static void returnBookByBook(Book book) {
         boolean returned = book.returnBook();
         if(returned)
             System.out.print("Thank you for returning the book.\n");
