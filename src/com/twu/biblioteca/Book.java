@@ -37,4 +37,8 @@ public class Book {
     public String getTitle() {
         return this.title;
     }
+
+    public boolean getOnLoan() {
+        return onLoan;
+    }
 }

@@ -1,10 +1,13 @@
 package com.twu.biblioteca;
 
+import com.sun.org.apache.bcel.internal.generic.RET;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
     public enum bookActions {CHECKOUT, RETURN};
+    public enum menuStatuses {VALID, INVALID, QUIT};
 
     static void displayWelcomeMessage() {
         System.out.printf("Welcome to Biblioteca!\n");
@@ -35,9 +38,14 @@ public class BibliotecaApp {
         }
     }
 
+    static void printInvalidOptionMessage(menuStatuses status) {
+        if(status == menuStatuses.INVALID)
+            System.out.print("Select a valid option!\n");
+    }
+
     static void listBookDetails(ArrayList<Book> bookList) {
         for(Book book: bookList) {
-            printBookDetails(book);
+            if (!book.getOnLoan()) printBookDetails(book);
         }
     }
 
@@ -73,26 +81,31 @@ public class BibliotecaApp {
         int optNum = 1;
         for(String option: menuOptions) {
             System.out.print(String.format("%d. %s\n", optNum, option));
+            optNum++;
         }
     }
 
     static void showMainMenu(ArrayList<String> menuOptions) {
         System.out.print("Main Menu:\n");
         showMenuOptions(menuOptions);
+        System.out.print("Type 'Quit' to exit.\n");
         System.out.print("-----\n");
         System.out.print("Select option, and press Enter: ");
     }
 
-    static boolean checkSelectionValid(ArrayList<String> menuItems) {
-        Scanner userInput = new Scanner(System.in);
-        String selection = userInput.next();
+    static menuStatuses checkSelectionValid(ArrayList<String> menuItems, String selection) {
         int selectionValue;
         try{
             selectionValue = Integer.parseInt(selection);
         } catch (NumberFormatException e){
-            return false;
+            if(selection.equals("Quit"))
+                return menuStatuses.QUIT;
+            return menuStatuses.INVALID;
         }
-        return selectionValue > 0 && selectionValue <= menuItems.size();
+        if (selectionValue > 0 && selectionValue <= menuItems.size())
+            return menuStatuses.VALID;
+        else
+            return menuStatuses.INVALID;
     }
 
     static int findBookByTitle(String title, ArrayList<Book> bookList){
@@ -108,9 +121,10 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         // Setup of some "pre-existing" data.
-        /*
         ArrayList<String> mainMenuItemList = new ArrayList<String>();
         mainMenuItemList.add("List books");
+        mainMenuItemList.add("Checkout book");
+        mainMenuItemList.add("Return book");
 
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(new Book("TW101", "ThoughtWorkers", "2012"));
@@ -118,10 +132,37 @@ public class BibliotecaApp {
         bookList.add(new Book("Let me Fly", "Testers Union", "2016"));
         bookList.add(new Book("TDD is interesting", "John et. al", "2014"));
 
+        Scanner userInput = new Scanner(System.in);
+        String selection;
+        menuStatuses status;
+
         // Main Program Flow
         displayWelcomeMessage();
-        showMainMenu(mainMenuItemList);
-        //listBookDetails(bookList);
-        */
+
+        do{
+            showMainMenu(mainMenuItemList);
+            selection = userInput.next();
+
+            status = checkSelectionValid(mainMenuItemList, selection);
+
+            printInvalidOptionMessage(status);
+
+            if(status == menuStatuses.VALID){
+                int option = Integer.parseInt(selection);
+                switch (option){
+                    case 1:
+                        listBookDetails(bookList);
+                        break;
+                    case 2:
+                        processBook(bookList, bookActions.CHECKOUT);
+                        break;
+                    case 3:
+                        processBook(bookList, bookActions.RETURN);
+                        break;
+                }
+            }
+
+            System.out.println();
+        } while (status != menuStatuses.QUIT);
     }
 }

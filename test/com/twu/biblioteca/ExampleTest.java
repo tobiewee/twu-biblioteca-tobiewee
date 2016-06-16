@@ -87,7 +87,17 @@ public class ExampleTest {
     public void testListBookDetails() {
         StringBuilder expected = new StringBuilder();
         for(Book book: bookList) {
-            expected.append(book.toString());
+            if (!book.getOnLoan()) expected.append(book.toString());
+        }
+
+        BibliotecaApp.listBookDetails(bookList);
+        assertEquals(expected.toString(), testOutStream.toString());
+
+        testOutStream.reset();
+        assertTrue(bookList.get(0).checkoutBook());
+        expected = new StringBuilder();
+        for(Book book: bookList) {
+            if (!book.getOnLoan()) expected.append(book.toString());
         }
 
         BibliotecaApp.listBookDetails(bookList);
@@ -116,6 +126,7 @@ public class ExampleTest {
 
         for(String option: menuOptions) {
             expected.append(String.format("%d. %s\n", optNum, option));
+            optNum++;
         }
 
         BibliotecaApp.showMenuOptions(menuOptions);
@@ -130,6 +141,7 @@ public class ExampleTest {
         for(String option: menuOptions) {
             expected.append(String.format("%d. %s\n", optNum, option));
         }
+        expected.append("Type 'Quit' to exit.\n");
         expected.append("-----\n");
         expected.append("Select option, and press Enter: ");
 
@@ -139,17 +151,20 @@ public class ExampleTest {
 
     @Test
     public void testCheckSelectionValid() {
-        setInputString("1");
-        assertEquals(true, BibliotecaApp.checkSelectionValid(menuOptions));
+        assertEquals(BibliotecaApp.menuStatuses.VALID,
+                BibliotecaApp.checkSelectionValid(menuOptions, "1"));
 
-        setInputString("H");
-        assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
+        assertEquals(BibliotecaApp.menuStatuses.INVALID,
+                BibliotecaApp.checkSelectionValid(menuOptions, "H"));
 
-        setInputString("0");
-        assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
+        assertEquals(BibliotecaApp.menuStatuses.INVALID,
+                BibliotecaApp.checkSelectionValid(menuOptions, "0"));
 
-        setInputString("100");
-        assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
+        assertEquals(BibliotecaApp.menuStatuses.INVALID,
+                BibliotecaApp.checkSelectionValid(menuOptions, "100"));
+
+        assertEquals(BibliotecaApp.menuStatuses.QUIT,
+                BibliotecaApp.checkSelectionValid(menuOptions, "Quit"));
     }
 
     @Test
@@ -223,4 +238,15 @@ public class ExampleTest {
         assertEquals(returnBkFail, testOutStream.toString());
     }
 
+    @Test
+    public void testPrintInvalidOptionMessage() {
+        BibliotecaApp.printInvalidOptionMessage(BibliotecaApp.menuStatuses.INVALID);
+        assertEquals("Select a valid option!\n", testOutStream.toString());
+        testOutStream.reset();
+        BibliotecaApp.printInvalidOptionMessage(BibliotecaApp.menuStatuses.VALID);
+        assertEquals("", testOutStream.toString());
+        testOutStream.reset();
+        BibliotecaApp.printInvalidOptionMessage(BibliotecaApp.menuStatuses.QUIT);
+        assertEquals("", testOutStream.toString());
+    }
 }
