@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ExampleTest {
     private PrintStream originalOutStream;
@@ -59,8 +59,9 @@ public class ExampleTest {
     @Test
     public void testListBooks() {
         ArrayList<String> books = new ArrayList<String>();
-        books.add("Hello World");
-        books.add("My First TDD Program");
+        for (Book book : bookList) {
+            books.add(book.getTitle());
+        }
 
         StringBuilder expectedMessage = new StringBuilder();
         for(String title: books) {
@@ -76,7 +77,7 @@ public class ExampleTest {
 
     @Test
     public void testPrintBookDetails() {
-        Book book = new Book("Coding in TDD", "Jump Kitten", "2016");
+        Book book = bookList.get(0);
         String expected = book.toString();
 
         BibliotecaApp.printBookDetails(book);
@@ -96,14 +97,14 @@ public class ExampleTest {
 
     @Test
     public void testBookClassCheckoutBook() {
-        Book book = new Book("Test", "Tester", "2016");
+        Book book = bookList.get(0);
         assertEquals(true, book.checkoutBook());
         assertEquals(false, book.checkoutBook());
     }
 
     @Test
     public void testBookClassReturnBook() {
-        Book book = new Book("Test", "Tester", "2016");
+        Book book = bookList.get(0);
         assertEquals(false, book.returnBook());
         book.checkoutBook();
         assertEquals(true, book.returnBook());
@@ -111,7 +112,7 @@ public class ExampleTest {
 
     @Test
     public void testCheckoutBookByBook() {
-        Book book = new Book("Test", "Tester", "2016");
+        Book book = bookList.get(0);
         assertEquals(true, BibliotecaApp.checkoutBookByBook(book));
         assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
         testOutStream.reset();
@@ -121,7 +122,7 @@ public class ExampleTest {
 
     @Test
     public void testReturnBookByBook() { //to be updated/changed.
-        Book book = new Book("Test", "Tester", "2016");
+        Book book = bookList.get(0);
         BibliotecaApp.returnBookByBook(book);
         assertEquals("That is not a valid book to return.\n", testOutStream.toString());
         testOutStream.reset();
