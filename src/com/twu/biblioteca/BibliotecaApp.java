@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
+    public enum bookActions {CHECKOUT, RETURN};
 
     static void displayWelcomeMessage() {
         System.out.printf("Welcome to Biblioteca!\n");
@@ -19,26 +20,32 @@ public class BibliotecaApp {
         System.out.printf(book.toString());
     }
 
+    static void printNotification(bookActions action, boolean success) {
+        switch (action) {
+            case CHECKOUT:
+                if(success) System.out.print("Thank you! Enjoy the book\n");
+                else System.out.print("That book is not available.\n");
+                break;
+            case RETURN:
+                if(success) System.out.print("Thank you for returning the book.\n");
+                else System.out.print("That is not a valid book to return.\n");
+                break;
+            default:
+                break;
+        }
+    }
+
     static void listBookDetails(ArrayList<Book> bookList) {
         for(Book book: bookList) {
             printBookDetails(book);
         }
     }
 
-    static boolean checkoutBookByBook(Book book) {
-        boolean checkedout = book.checkoutBook();
-        if(checkedout)
-            System.out.print("Thank you! Enjoy the book\n");
-        else
-            System.out.print("That book is not available.\n");
-        return checkedout;
-    }
-
     static void askForBookTitle(){
         System.out.print("Enter book title: ");
     }
 
-    static boolean checkoutBook(ArrayList<Book> bookList) {
+    static boolean processBook(ArrayList<Book> bookList, bookActions action) {
         Scanner in = new Scanner(System.in);
         askForBookTitle();
         String input = in.nextLine();
@@ -46,18 +53,20 @@ public class BibliotecaApp {
         int bookIdx = findBookByTitle(input, bookList);
 
         if(bookIdx == -1) {
-            System.out.print("That book is not available.\n");
+            printNotification(action, false);
             return false;
         }
-        return checkoutBookByBook(bookList.get(bookIdx));
-    }
 
-    static void returnBookByBook(Book book) {
-        boolean returned = book.returnBook();
-        if(returned)
-            System.out.print("Thank you for returning the book.\n");
-        else
-            System.out.print("That is not a valid book to return.\n");
+        boolean status = false;
+
+        if (action == bookActions.CHECKOUT)
+            status = bookList.get(bookIdx).checkoutBook();
+        else if (action == bookActions.RETURN)
+            status = bookList.get(bookIdx).returnBook();
+
+        printNotification(action, status);
+
+        return status;
     }
 
     static void showMenuOptions(ArrayList<String> menuOptions) {
@@ -99,6 +108,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         // Setup of some "pre-existing" data.
+        /*
         ArrayList<String> mainMenuItemList = new ArrayList<String>();
         mainMenuItemList.add("List books");
 
@@ -112,5 +122,6 @@ public class BibliotecaApp {
         displayWelcomeMessage();
         showMainMenu(mainMenuItemList);
         //listBookDetails(bookList);
+        */
     }
 }
