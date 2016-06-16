@@ -17,7 +17,6 @@ public class ExampleTest {
     private PrintStream originalOutStream;
     private InputStream originalInStream;
     private ByteArrayOutputStream testOutStream;
-    private ByteArrayInputStream testInStream;
     private ArrayList<String> menuOptions;
     private ArrayList<Book> bookList;
 
@@ -44,7 +43,7 @@ public class ExampleTest {
     }
 
     private void setInputString(String strToSet) {
-        testInStream = new ByteArrayInputStream(strToSet.getBytes());
+        ByteArrayInputStream testInStream = new ByteArrayInputStream(strToSet.getBytes());
         System.setIn(testInStream);
     }
 
@@ -189,21 +188,47 @@ public class ExampleTest {
     }
 
     @Test
-    public void checkoutBook(){
+    public void testCheckoutBook(){
+        //setup
         String title0 = bookList.get(0).getTitle();
         String title1 = bookList.get(1).getTitle();
         String notInList = "La la la";
 
+        //tests
         setInputString(title0);
         assertEquals(true, BibliotecaApp.checkoutBook(bookList));
+
+        setInputString(title0);
+        assertEquals(false, BibliotecaApp.checkoutBook(bookList));
 
         setInputString(title1);
         assertEquals(true, BibliotecaApp.checkoutBook(bookList));
 
-        setInputString(title0);
-        assertEquals(false, BibliotecaApp.checkoutBook(bookList));
-
         setInputString(notInList);
         assertEquals(false, BibliotecaApp.checkoutBook(bookList));
     }
+
+    @Test
+    public void testReturnBook(){
+        //setup
+        String title0 = bookList.get(0).getTitle();
+        String title1 = bookList.get(1).getTitle();
+        String notInList = "La la la";
+
+        assertTrue(BibliotecaApp.checkoutBookByBook(bookList.get(0)));
+
+        //tests
+        setInputString(title0);
+        assertEquals(true, BibliotecaApp.returnBook(bookList));
+
+        setInputString(title0);
+        assertEquals(false, BibliotecaApp.returnBook(bookList));
+
+        setInputString(title1);
+        assertEquals(false, BibliotecaApp.returnBook(bookList));
+
+        setInputString(notInList);
+        assertEquals(false, BibliotecaApp.returnBook(bookList));
+    }
+
 }

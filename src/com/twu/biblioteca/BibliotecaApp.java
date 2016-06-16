@@ -52,12 +52,27 @@ public class BibliotecaApp {
         return checkoutBookByBook(bookList.get(bookIdx));
     }
 
-    static void returnBookByBook(Book book) {
+    static boolean returnBook(ArrayList<Book> bookList) {
+        Scanner in = new Scanner(System.in);
+        askForBookTitle();
+        String input = in.nextLine();
+
+        int bookIdx = findBookByTitle(input, bookList);
+
+        if(bookIdx == -1) {
+            System.out.print("That is not a valid book to return.\n");
+            return false;
+        }
+        return returnBookByBook(bookList.get(bookIdx));
+    }
+
+    static boolean returnBookByBook(Book book) {
         boolean returned = book.returnBook();
         if(returned)
             System.out.print("Thank you for returning the book.\n");
         else
             System.out.print("That is not a valid book to return.\n");
+        return returned;
     }
 
     static void showMenuOptions(ArrayList<String> menuOptions) {
