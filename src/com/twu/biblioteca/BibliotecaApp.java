@@ -25,15 +25,34 @@ public class BibliotecaApp {
         }
     }
 
-    static void checkoutBook(Book book) {
+    static boolean checkoutBookByBook(Book book) {
         boolean checkedout = book.checkoutBook();
         if(checkedout)
             System.out.print("Thank you! Enjoy the book\n");
         else
             System.out.print("That book is not available.\n");
+        return checkedout;
     }
 
-    static void returnBook(Book book) {
+    static void askForBookTitle(){
+        System.out.print("Enter book title: ");
+    }
+
+    static boolean checkoutBook(ArrayList<Book> bookList) {
+        Scanner in = new Scanner(System.in);
+        askForBookTitle();
+        String input = in.nextLine();
+
+        int bookIdx = findBookByTitle(input, bookList);
+
+        if(bookIdx == -1) {
+            System.out.print("That book is not available.\n");
+            return false;
+        }
+        return checkoutBookByBook(bookList.get(bookIdx));
+    }
+
+    static void returnBookByBook(Book book) {
         boolean returned = book.returnBook();
         if(returned)
             System.out.print("Thank you for returning the book.\n");
@@ -65,6 +84,17 @@ public class BibliotecaApp {
             return false;
         }
         return selectionValue > 0 && selectionValue <= menuItems.size();
+    }
+
+    static int findBookByTitle(String title, ArrayList<Book> bookList){
+        int idx = -1;
+        for(Book book : bookList){
+            idx++;
+            if(title.equals(book.getTitle())) {
+                return idx;
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args) {

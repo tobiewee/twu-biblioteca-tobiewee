@@ -33,4 +33,12 @@ public class Book {
         onLoan = false;
         return !onLoan;
     }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public boolean getOnLoan() {
+        return onLoan;
+    }
 }

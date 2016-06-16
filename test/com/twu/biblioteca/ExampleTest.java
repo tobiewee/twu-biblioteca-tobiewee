@@ -17,12 +17,17 @@ public class ExampleTest {
     private PrintStream originalOutStream;
     private ByteArrayOutputStream testOutStream;
     private ArrayList<String> menuOptions;
+    private ArrayList<Book> bookList;
 
     @Before
     public void setUp() {
         originalOutStream = System.out;
         testOutStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(testOutStream));
+
+        bookList = new ArrayList<Book>();
+        bookList.add(new Book("Jump in TDD", "Unknown", "2017"));
+        bookList.add(new Book("Mouse loves cat", "Rubbish Author", "2020"));
 
         menuOptions = new ArrayList<String>();
         menuOptions.add("List books");
@@ -70,10 +75,6 @@ public class ExampleTest {
 
     @Test
     public void testListBookDetails() {
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        bookList.add(new Book("Jump in TDD", "Unknown", "2017"));
-        bookList.add(new Book("Mouse loves cat", "Rubbish Author", "2020"));
-
         StringBuilder expected = new StringBuilder();
         for(Book book: bookList) {
             expected.append(book.toString());
@@ -99,23 +100,23 @@ public class ExampleTest {
     }
 
     @Test
-    public void testCheckoutBook() {
+    public void testCheckoutBookByBook() {
         Book book = new Book("Test", "Tester", "2016");
-        BibliotecaApp.checkoutBook(book);
+        assertEquals(true, BibliotecaApp.checkoutBookByBook(book));
         assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
         testOutStream.reset();
-        BibliotecaApp.checkoutBook(book);
+        assertEquals(false, BibliotecaApp.checkoutBookByBook(book));
         assertEquals("That book is not available.\n", testOutStream.toString());
     }
 
     @Test
-    public void testReturnBook() {
+    public void testReturnBookByBook() { //to be updated/changed.
         Book book = new Book("Test", "Tester", "2016");
-        BibliotecaApp.returnBook(book);
+        BibliotecaApp.returnBookByBook(book);
         assertEquals("That is not a valid book to return.\n", testOutStream.toString());
         testOutStream.reset();
         book.checkoutBook();
-        BibliotecaApp.returnBook(book);
+        BibliotecaApp.returnBookByBook(book);
         assertEquals("Thank you for returning the book.\n", testOutStream.toString());
     }
 
@@ -166,6 +167,47 @@ public class ExampleTest {
         testInput = new ByteArrayInputStream("100".getBytes());
         System.setIn(testInput);
         assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
+
+        System.setIn(original);
+    }
+
+    @Test
+    public void testFindBookByTitle(){
+        String title0 = bookList.get(0).getTitle();
+        String title1 = bookList.get(1).getTitle();
+        assertEquals(0, BibliotecaApp.findBookByTitle(title0, bookList));
+        assertEquals(1, BibliotecaApp.findBookByTitle(title1, bookList));
+    }
+
+    @Test
+    public void testAskForBookTitle(){
+        BibliotecaApp.askForBookTitle();
+        assertEquals("Enter book title: ", testOutStream.toString());
+    }
+
+    @Test
+    public void checkoutBook(){
+        String title0 = bookList.get(0).getTitle();
+        String title1 = bookList.get(1).getTitle();
+        String notInList = "La la la";
+
+        ByteArrayInputStream testInput = new ByteArrayInputStream(title0.getBytes());
+        InputStream original = System.in;
+
+        System.setIn(testInput);
+        assertEquals(true, BibliotecaApp.checkoutBook(bookList));
+
+        testInput = new ByteArrayInputStream(title1.getBytes());
+        System.setIn(testInput);
+        assertEquals(true, BibliotecaApp.checkoutBook(bookList));
+
+        testInput = new ByteArrayInputStream(title0.getBytes());
+        System.setIn(testInput);
+        assertEquals(false, BibliotecaApp.checkoutBook(bookList));
+
+        testInput = new ByteArrayInputStream(notInList.getBytes());
+        System.setIn(testInput);
+        assertEquals(false, BibliotecaApp.checkoutBook(bookList));
 
         System.setIn(original);
     }
