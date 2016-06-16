@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b6e1252-6b78-4fe5-9934-bddc38729bc1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/twu-biblioteca-tobiewee/com/twu/biblioteca/ExampleTest.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" />
     </list>
@@ -33,12 +31,9 @@
           <file leaf-file-name="ExampleTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="319">
-                  <caret line="225" column="0" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#1734#1742#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="-356">
+                  <caret line="172" column="31" selection-start-line="172" selection-start-column="31" selection-end-line="172" selection-end-column="31" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -50,17 +45,9 @@
           <file leaf-file-name="BibliotecaApp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-                  <folding>
-                    <element signature="method#listBooks#0;class#BibliotecaApp#0" expanded="false" />
-                    <element signature="method#listBookDetails#0;class#BibliotecaApp#0" expanded="false" />
-                    <element signature="method#checkoutBookByBook#0;class#BibliotecaApp#0" expanded="false" />
-                    <element signature="method#showMenuOptions#0;class#BibliotecaApp#0" expanded="false" />
-                    <element signature="method#showMainMenu#0;class#BibliotecaApp#0" expanded="false" />
-                    <element signature="method#checkSelectionValid#0;class#BibliotecaApp#0" expanded="false" />
-                    <element signature="method#findBookByTitle#0;class#BibliotecaApp#0" expanded="false" />
-                  </folding>
+                <state relative-caret-position="559">
+                  <caret line="121" column="30" selection-start-line="121" selection-start-column="30" selection-end-line="121" selection-end-column="30" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -94,8 +81,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
       </list>
     </option>
   </component>
@@ -678,44 +665,44 @@
       <workItem from="1465808423397" duration="414000" />
       <workItem from="1465891612767" duration="92000" />
       <workItem from="1465981151041" duration="2928000" />
-      <workItem from="1466039711057" duration="7180000" />
+      <workItem from="1466039711057" duration="11462000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ExampleTest - 2016.06.16 at 11h 46m 30s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 37m 04s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 11h 48m 04s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 37m 29s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 11h 57m 35s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 40m 00s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 11h 58m 14s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 41m 25s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 11h 58m 52s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 43m 26s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 12h 00m 08s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 43m 45s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 12h 00m 23s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 45m 07s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 12h 02m 34s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 45m 57s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 12h 02m 59s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 48m 50s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ExampleTest - 2016.06.16 at 12h 03m 48s.xml">
+    <history-entry file="ExampleTest - 2016.06.16 at 14h 49m 04s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10614000" />
+    <option name="totallyTimeSpent" value="14896000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -801,15 +788,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="method#listBooks#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#listBookDetails#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#checkoutBookByBook#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#showMenuOptions#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#showMainMenu#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#checkSelectionValid#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#findBookByTitle#0;class#BibliotecaApp#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -817,10 +796,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1734#1742#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -828,15 +804,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="method#listBooks#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#listBookDetails#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#checkoutBookByBook#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#showMenuOptions#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#showMainMenu#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#checkSelectionValid#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#findBookByTitle#0;class#BibliotecaApp#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -844,10 +812,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1734#1742#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-356">
+          <caret line="172" column="31" selection-start-line="172" selection-start-column="31" selection-end-line="172" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -864,28 +837,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-          <folding>
-            <element signature="method#listBooks#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#listBookDetails#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#checkoutBookByBook#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#showMenuOptions#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#showMainMenu#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#checkSelectionValid#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#findBookByTitle#0;class#BibliotecaApp#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="225" column="0" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1734#1742#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="559">
+          <caret line="121" column="30" selection-start-line="121" selection-start-column="30" selection-end-line="121" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

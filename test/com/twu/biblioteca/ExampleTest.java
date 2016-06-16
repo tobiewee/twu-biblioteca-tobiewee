@@ -110,27 +110,6 @@ public class ExampleTest {
     }
 
     @Test
-    public void testCheckoutBookByBook() {
-        Book book = bookList.get(0);
-        assertEquals(true, BibliotecaApp.checkoutBookByBook(book));
-        assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
-        testOutStream.reset();
-        assertEquals(false, BibliotecaApp.checkoutBookByBook(book));
-        assertEquals("That book is not available.\n", testOutStream.toString());
-    }
-
-    @Test
-    public void testReturnBookByBook() { //to be updated/changed.
-        Book book = bookList.get(0);
-        BibliotecaApp.returnBookByBook(book);
-        assertEquals("That is not a valid book to return.\n", testOutStream.toString());
-        testOutStream.reset();
-        book.checkoutBook();
-        BibliotecaApp.returnBookByBook(book);
-        assertEquals("Thank you for returning the book.\n", testOutStream.toString());
-    }
-
-    @Test
     public void testShowMenuOptions() {
         StringBuilder expected = new StringBuilder();
         int optNum = 1;
@@ -188,7 +167,7 @@ public class ExampleTest {
     }
 
     @Test
-    public void testCheckoutBook(){
+    public void testProcessBook(){
         //setup
         String title0 = bookList.get(0).getTitle();
         String title1 = bookList.get(1).getTitle();
@@ -196,39 +175,52 @@ public class ExampleTest {
 
         //tests
         setInputString(title0);
-        assertEquals(true, BibliotecaApp.checkoutBook(bookList));
+        assertEquals(true, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.CHECKOUT));
 
         setInputString(title0);
-        assertEquals(false, BibliotecaApp.checkoutBook(bookList));
+        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.CHECKOUT));
+
+        setInputString(title0);
+        assertEquals(true, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.RETURN));
+
+        setInputString(title0);
+        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.RETURN));
 
         setInputString(title1);
-        assertEquals(true, BibliotecaApp.checkoutBook(bookList));
+        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.RETURN));
 
         setInputString(notInList);
-        assertEquals(false, BibliotecaApp.checkoutBook(bookList));
+        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.CHECKOUT));
+
+        setInputString(notInList);
+        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.RETURN));
     }
 
     @Test
-    public void testReturnBook(){
+    public void testPrintNotification() {
         //setup
-        String title0 = bookList.get(0).getTitle();
-        String title1 = bookList.get(1).getTitle();
-        String notInList = "La la la";
+        String chkoutBkSucc = "Thank you! Enjoy the book\n";
+        String chkoutBkFail = "That book is not available.\n";
+        String returnBkSucc = "Thank you for returning the book.\n";
+        String returnBkFail = "That is not a valid book to return.\n";
 
-        assertTrue(BibliotecaApp.checkoutBookByBook(bookList.get(0)));
+        BibliotecaApp.printNotification(BibliotecaApp.bookActions.CHECKOUT, true);
+        assertEquals(chkoutBkSucc, testOutStream.toString());
 
-        //tests
-        setInputString(title0);
-        assertEquals(true, BibliotecaApp.returnBook(bookList));
+        testOutStream.reset();
 
-        setInputString(title0);
-        assertEquals(false, BibliotecaApp.returnBook(bookList));
+        BibliotecaApp.printNotification(BibliotecaApp.bookActions.CHECKOUT, false);
+        assertEquals(chkoutBkFail, testOutStream.toString());
 
-        setInputString(title1);
-        assertEquals(false, BibliotecaApp.returnBook(bookList));
+        testOutStream.reset();
 
-        setInputString(notInList);
-        assertEquals(false, BibliotecaApp.returnBook(bookList));
+        BibliotecaApp.printNotification(BibliotecaApp.bookActions.RETURN, true);
+        assertEquals(returnBkSucc, testOutStream.toString());
+
+        testOutStream.reset();
+
+        BibliotecaApp.printNotification(BibliotecaApp.bookActions.RETURN, false);
+        assertEquals(returnBkFail, testOutStream.toString());
     }
 
 }
