@@ -15,13 +15,17 @@ import static org.junit.Assert.assertEquals;
 
 public class ExampleTest {
     private PrintStream originalOutStream;
+    private InputStream originalInStream;
     private ByteArrayOutputStream testOutStream;
+    private ByteArrayInputStream testInStream;
     private ArrayList<String> menuOptions;
     private ArrayList<Book> bookList;
 
     @Before
     public void setUp() {
         originalOutStream = System.out;
+        originalInStream = System.in;
+
         testOutStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(testOutStream));
 
@@ -36,6 +40,7 @@ public class ExampleTest {
     @After
     public void tearDown() {
         System.setOut(originalOutStream);
+        System.setIn(originalInStream);
     }
 
     @Test
@@ -150,25 +155,21 @@ public class ExampleTest {
 
     @Test
     public void testCheckSelectionValid() {
-        ByteArrayInputStream testInput = new ByteArrayInputStream("1".getBytes());
-        InputStream original = System.in;
-
-        System.setIn(testInput);
+        testInStream = new ByteArrayInputStream("1".getBytes());
+        System.setIn(testInStream);
         assertEquals(true, BibliotecaApp.checkSelectionValid(menuOptions));
 
-        testInput = new ByteArrayInputStream("H".getBytes());
-        System.setIn(testInput);
+        testInStream = new ByteArrayInputStream("H".getBytes());
+        System.setIn(testInStream);
         assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
 
-        testInput = new ByteArrayInputStream("0".getBytes());
-        System.setIn(testInput);
+        testInStream = new ByteArrayInputStream("0".getBytes());
+        System.setIn(testInStream);
         assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
 
-        testInput = new ByteArrayInputStream("100".getBytes());
-        System.setIn(testInput);
+        testInStream = new ByteArrayInputStream("100".getBytes());
+        System.setIn(testInStream);
         assertEquals(false, BibliotecaApp.checkSelectionValid(menuOptions));
-
-        System.setIn(original);
     }
 
     @Test
@@ -191,24 +192,21 @@ public class ExampleTest {
         String title1 = bookList.get(1).getTitle();
         String notInList = "La la la";
 
-        ByteArrayInputStream testInput = new ByteArrayInputStream(title0.getBytes());
-        InputStream original = System.in;
+        testInStream = new ByteArrayInputStream(title0.getBytes());
 
-        System.setIn(testInput);
+        System.setIn(testInStream);
         assertEquals(true, BibliotecaApp.checkoutBook(bookList));
 
-        testInput = new ByteArrayInputStream(title1.getBytes());
-        System.setIn(testInput);
+        testInStream = new ByteArrayInputStream(title1.getBytes());
+        System.setIn(testInStream);
         assertEquals(true, BibliotecaApp.checkoutBook(bookList));
 
-        testInput = new ByteArrayInputStream(title0.getBytes());
-        System.setIn(testInput);
+        testInStream = new ByteArrayInputStream(title0.getBytes());
+        System.setIn(testInStream);
         assertEquals(false, BibliotecaApp.checkoutBook(bookList));
 
-        testInput = new ByteArrayInputStream(notInList.getBytes());
-        System.setIn(testInput);
+        testInStream = new ByteArrayInputStream(notInList.getBytes());
+        System.setIn(testInStream);
         assertEquals(false, BibliotecaApp.checkoutBook(bookList));
-
-        System.setIn(original);
     }
 }
