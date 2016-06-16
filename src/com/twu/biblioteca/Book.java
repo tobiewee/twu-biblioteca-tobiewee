@@ -34,7 +34,11 @@ public class Book {
         return !onLoan;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return this.title;
+    }
+
+    public boolean getOnLoan() {
+        return onLoan;
     }
 }

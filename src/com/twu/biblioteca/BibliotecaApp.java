@@ -25,12 +25,31 @@ public class BibliotecaApp {
         }
     }
 
-    static void checkoutBookByBook(Book book) {
+    static boolean checkoutBookByBook(Book book) {
         boolean checkedout = book.checkoutBook();
         if(checkedout)
             System.out.print("Thank you! Enjoy the book\n");
         else
             System.out.print("That book is not available.\n");
+        return checkedout;
+    }
+
+    static void askForBookTitle(){
+        System.out.print("Enter book title: ");
+    }
+
+    static boolean checkoutBook(ArrayList<Book> bookList) {
+        Scanner in = new Scanner(System.in);
+        askForBookTitle();
+        String input = in.nextLine();
+
+        int bookIdx = findBookByTitle(input, bookList);
+
+        if(bookIdx == -1) {
+            System.out.print("That book is not available.\n");
+            return false;
+        }
+        return checkoutBookByBook(bookList.get(bookIdx));
     }
 
     static void returnBookByBook(Book book) {

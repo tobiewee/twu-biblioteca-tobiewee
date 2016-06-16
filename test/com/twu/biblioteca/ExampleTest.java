@@ -100,12 +100,12 @@ public class ExampleTest {
     }
 
     @Test
-    public void testCheckoutBookByBook() { //to be updated/changed.
+    public void testCheckoutBookByBook() {
         Book book = new Book("Test", "Tester", "2016");
-        BibliotecaApp.checkoutBookByBook(book);
+        assertEquals(true, BibliotecaApp.checkoutBookByBook(book));
         assertEquals("Thank you! Enjoy the book\n", testOutStream.toString());
         testOutStream.reset();
-        BibliotecaApp.checkoutBookByBook(book);
+        assertEquals(false, BibliotecaApp.checkoutBookByBook(book));
         assertEquals("That book is not available.\n", testOutStream.toString());
     }
 
@@ -173,9 +173,42 @@ public class ExampleTest {
 
     @Test
     public void testFindBookByTitle(){
-        String title0 = "Jump in TDD";
-        String title1 = "Mouse loves cat";
+        String title0 = bookList.get(0).getTitle();
+        String title1 = bookList.get(1).getTitle();
         assertEquals(0, BibliotecaApp.findBookByTitle(title0, bookList));
         assertEquals(1, BibliotecaApp.findBookByTitle(title1, bookList));
+    }
+
+    @Test
+    public void testAskForBookTitle(){
+        BibliotecaApp.askForBookTitle();
+        assertEquals("Enter book title: ", testOutStream.toString());
+    }
+
+    @Test
+    public void checkoutBook(){
+        String title0 = bookList.get(0).getTitle();
+        String title1 = bookList.get(1).getTitle();
+        String notInList = "La la la";
+
+        ByteArrayInputStream testInput = new ByteArrayInputStream(title0.getBytes());
+        InputStream original = System.in;
+
+        System.setIn(testInput);
+        assertEquals(true, BibliotecaApp.checkoutBook(bookList));
+
+        testInput = new ByteArrayInputStream(title1.getBytes());
+        System.setIn(testInput);
+        assertEquals(true, BibliotecaApp.checkoutBook(bookList));
+
+        testInput = new ByteArrayInputStream(title0.getBytes());
+        System.setIn(testInput);
+        assertEquals(false, BibliotecaApp.checkoutBook(bookList));
+
+        testInput = new ByteArrayInputStream(notInList.getBytes());
+        System.setIn(testInput);
+        assertEquals(false, BibliotecaApp.checkoutBook(bookList));
+
+        System.setIn(original);
     }
 }
