@@ -105,21 +105,6 @@ public class ExampleTest {
     }
 
     @Test
-    public void testBookClassCheckoutBook() {
-        Book book = bookList.get(0);
-        assertEquals(true, book.checkoutBook());
-        assertEquals(false, book.checkoutBook());
-    }
-
-    @Test
-    public void testBookClassReturnBook() {
-        Book book = bookList.get(0);
-        assertEquals(false, book.returnBook());
-        book.checkoutBook();
-        assertEquals(true, book.returnBook());
-    }
-
-    @Test
     public void testShowMenuOptions() {
         StringBuilder expected = new StringBuilder();
         int optNum = 1;
@@ -248,5 +233,20 @@ public class ExampleTest {
         testOutStream.reset();
         BibliotecaApp.printInvalidOptionMessage(BibliotecaApp.menuStatuses.QUIT);
         assertEquals("", testOutStream.toString());
+    }
+
+    @Test
+    public void testBookClassCheckoutBook() {
+        Book book = bookList.get(0);
+        assertEquals(true, book.checkoutBook());
+        assertEquals(false, book.checkoutBook());
+    }
+
+    @Test
+    public void testBookClassReturnBook() {
+        Book book = bookList.get(0);
+        assertEquals(false, book.returnBook());
+        book.checkoutBook();
+        assertEquals(true, book.returnBook());
     }
 }

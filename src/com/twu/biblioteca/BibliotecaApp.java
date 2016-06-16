@@ -9,13 +9,50 @@ public class BibliotecaApp {
     public enum bookActions {CHECKOUT, RETURN};
     public enum menuStatuses {VALID, INVALID, QUIT};
 
+    static void listBooks(ArrayList<String> bookList) {
+        for(String title: bookList) {
+            System.out.printf("%s\n", title);
+        }
+    }
+
     static void displayWelcomeMessage() {
         System.out.printf("Welcome to Biblioteca!\n");
     }
 
-    static void listBooks(ArrayList<String> bookList) {
-        for(String title: bookList) {
-            System.out.printf("%s\n", title);
+    static void showMenuOptions(ArrayList<String> menuOptions) {
+        int optNum = 1;
+        for(String option: menuOptions) {
+            System.out.print(String.format("%d. %s\n", optNum, option));
+            optNum++;
+        }
+    }
+
+    static menuStatuses checkSelectionValid(ArrayList<String> menuItems, String selection) {
+        int selectionValue;
+        try{
+            selectionValue = Integer.parseInt(selection);
+        } catch (NumberFormatException e){
+            if(selection.equals("Quit"))
+                return menuStatuses.QUIT;
+            return menuStatuses.INVALID;
+        }
+        if (selectionValue > 0 && selectionValue <= menuItems.size())
+            return menuStatuses.VALID;
+        else
+            return menuStatuses.INVALID;
+    }
+
+    static void showMainMenu(ArrayList<String> menuOptions) {
+        System.out.print("Main Menu:\n");
+        showMenuOptions(menuOptions);
+        System.out.print("Type 'Quit' to exit.\n");
+        System.out.print("-----\n");
+        System.out.print("Select option, and press Enter: ");
+    }
+
+    static void listBookDetails(ArrayList<Book> bookList) {
+        for(Book book: bookList) {
+            if (!book.getOnLoan()) printBookDetails(book);
         }
     }
 
@@ -43,14 +80,19 @@ public class BibliotecaApp {
             System.out.print("Select a valid option!\n");
     }
 
-    static void listBookDetails(ArrayList<Book> bookList) {
-        for(Book book: bookList) {
-            if (!book.getOnLoan()) printBookDetails(book);
-        }
-    }
-
     static void askForBookTitle(){
         System.out.print("Enter book title: ");
+    }
+
+    static int findBookByTitle(String title, ArrayList<Book> bookList){
+        int idx = -1;
+        for(Book book : bookList){
+            idx++;
+            if(title.equals(book.getTitle())) {
+                return idx;
+            }
+        }
+        return -1;
     }
 
     static boolean processBook(ArrayList<Book> bookList, bookActions action) {
@@ -75,48 +117,6 @@ public class BibliotecaApp {
         printNotification(action, status);
 
         return status;
-    }
-
-    static void showMenuOptions(ArrayList<String> menuOptions) {
-        int optNum = 1;
-        for(String option: menuOptions) {
-            System.out.print(String.format("%d. %s\n", optNum, option));
-            optNum++;
-        }
-    }
-
-    static void showMainMenu(ArrayList<String> menuOptions) {
-        System.out.print("Main Menu:\n");
-        showMenuOptions(menuOptions);
-        System.out.print("Type 'Quit' to exit.\n");
-        System.out.print("-----\n");
-        System.out.print("Select option, and press Enter: ");
-    }
-
-    static menuStatuses checkSelectionValid(ArrayList<String> menuItems, String selection) {
-        int selectionValue;
-        try{
-            selectionValue = Integer.parseInt(selection);
-        } catch (NumberFormatException e){
-            if(selection.equals("Quit"))
-                return menuStatuses.QUIT;
-            return menuStatuses.INVALID;
-        }
-        if (selectionValue > 0 && selectionValue <= menuItems.size())
-            return menuStatuses.VALID;
-        else
-            return menuStatuses.INVALID;
-    }
-
-    static int findBookByTitle(String title, ArrayList<Book> bookList){
-        int idx = -1;
-        for(Book book : bookList){
-            idx++;
-            if(title.equals(book.getTitle())) {
-                return idx;
-            }
-        }
-        return -1;
     }
 
     public static void main(String[] args) {
