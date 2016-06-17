@@ -19,6 +19,10 @@ public class ExampleTest {
     private ByteArrayOutputStream testOutStream;
     private ArrayList<String> menuOptions;
     private ArrayList<Publication> bookList;
+    private String defaultUsrPw;
+    private String defaultUsrId;
+    private User test;
+
 
     @Before
     public void setUp() {
@@ -34,6 +38,10 @@ public class ExampleTest {
 
         menuOptions = new ArrayList<String>();
         menuOptions.add("List books");
+
+        defaultUsrId = "xxx-xxxx";
+        defaultUsrPw = "test123!";
+        test = new User(defaultUsrId);
     }
 
     @After
@@ -312,5 +320,17 @@ public class ExampleTest {
         assertEquals(currentRating, test.setRating(""));
 
         assertEquals(notRated, test.setRating("unrated"));
+    }
+
+    @Test
+    public void testCreateNewUser() {
+        assertEquals(defaultUsrId, test.getId());
+        assertEquals(defaultUsrPw, test.getPw());
+    }
+
+    @Test
+    public void testVerifyPassword() {
+        assertEquals(true, test.verifyPassword(defaultUsrPw));
+        assertEquals(false, test.verifyPassword("asdjf"));
     }
 }

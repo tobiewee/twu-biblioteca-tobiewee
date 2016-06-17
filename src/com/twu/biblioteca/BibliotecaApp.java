@@ -99,7 +99,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         // Setup of some "pre-existing" data.
-        ArrayList<String> mainMenuItemList = new ArrayList<String>();
+        /*ArrayList<String> mainMenuItemList = new ArrayList<String>();
         mainMenuItemList.add("List books");
         mainMenuItemList.add("Checkout book");
         mainMenuItemList.add("Return book");
@@ -153,6 +153,6 @@ public class BibliotecaApp {
             }
 
             System.out.println();
-        } while (status != menuStatuses.QUIT);
+        } while (status != menuStatuses.QUIT);*/
     }
 }
