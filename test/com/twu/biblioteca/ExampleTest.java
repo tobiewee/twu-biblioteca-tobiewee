@@ -43,7 +43,7 @@ public class ExampleTest {
         defaultUsrPw = "test123!";
 
         userAccounts = new ArrayList<User>();
-        userAccounts.add(new User(defaultUsrId));
+        userAccounts.add(new User(defaultUsrId, "John Dow", "Johnny@LOL.com", "+0912398743"));
     }
 
     @After
@@ -356,5 +356,14 @@ public class ExampleTest {
         assertEquals(false, BibliotecaApp.verifyLogin(userAccounts, "Lalala", defaultUsrPw));
         assertEquals(false, BibliotecaApp.verifyLogin(userAccounts, defaultUsrId, "fake"));
         assertEquals(false, BibliotecaApp.verifyLogin(userAccounts, "Gibberish", "Hmph"));
+    }
+
+    @Test
+    public void testDisplayUserDetails() {
+        User test = userAccounts.get(0);
+        String expected = String.format("Name: %s\nEmail: %s\nPhone: %s\n",
+                test.getName(), test.getEmail(), test.getPhoneNum());
+        BibliotecaApp.displayUserDetails(test);
+        assertEquals(expected, testOutStream.toString());
     }
 }

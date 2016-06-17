@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b6e1252-6b78-4fe5-9934-bddc38729bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/User.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" />
     </list>
     <ignored path="twu-biblioteca-tobiewee.iws" />
@@ -32,18 +32,20 @@
           <file leaf-file-name="ExampleTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="409">
-                  <caret line="357" column="62" selection-start-line="357" selection-start-column="62" selection-end-line="357" selection-end-column="62" />
+                <state relative-caret-position="349">
+                  <caret line="362" column="40" selection-start-line="362" selection-start-column="40" selection-end-line="362" selection-end-column="40" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testListBooks#0;class#ExampleTest#0" expanded="false" />
+                    <element signature="method#testPrintPublicationDetails#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testListPublicationDetails#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testShowMenuOptions#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testShowMainMenu#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testCheckSelectionValid#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testFindPublicationByTitle#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testAskForTitle#0;class#ExampleTest#0" expanded="false" />
+                    <element signature="method#testProcessPublication#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testBookClassPrintNotification#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testPrintInvalidOptionMessage#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testCreateNewBook#0;class#ExampleTest#0" expanded="false" />
@@ -52,7 +54,6 @@
                     <element signature="method#testPublicationClassUpdateStatus#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testCreateNewMovie#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
-                    <element signature="method#testCreateNewUser#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testVerifyPassword#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
                     <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
@@ -65,11 +66,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="BibliotecaApp.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="BibliotecaApp.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+                <state relative-caret-position="390">
+                  <caret line="115" column="46" selection-start-line="115" selection-start-column="46" selection-end-line="115" selection-end-column="46" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="class#menuStatuses#0;class#BibliotecaApp#0" expanded="false" />
@@ -81,8 +82,10 @@
                     <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
                     <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
                     <element signature="method#processPublication#0;class#BibliotecaApp#0" expanded="false" />
-                    <marker date="1466181691000" expanded="false" signature="3878:3891" ph="&lt;~&gt;" />
-                    <marker date="1466181691000" expanded="false" signature="4240:4253" ph="&lt;~&gt;" />
+                    <element signature="method#verifyLogin#0;class#BibliotecaApp#0" expanded="false" />
+                    <element signature="method#displayUserDetails#0;class#BibliotecaApp#0" expanded="false" />
+                    <marker date="1466183368000" expanded="false" signature="4083:4096" ph="&lt;~&gt;" />
+                    <marker date="1466183368000" expanded="false" signature="4445:4458" ph="&lt;~&gt;" />
                   </folding>
                 </state>
               </provider>
@@ -118,12 +121,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/User.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-                  <folding />
+                <state relative-caret-position="214">
+                  <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#720#721#0" expanded="true" />
+                    <element signature="e#747#748#0" expanded="true" />
+                    <element signature="e#779#780#0" expanded="true" />
+                    <element signature="e#807#808#0" expanded="true" />
+                    <element signature="e#842#843#0" expanded="true" />
+                    <element signature="e#873#874#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -156,8 +166,9 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/User.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/UserDetails.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/User.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
       </list>
     </option>
   </component>
@@ -751,29 +762,11 @@
       <workItem from="1466126402709" duration="8552000" />
       <workItem from="1466143958432" duration="1401000" />
       <workItem from="1466153765992" duration="6074000" />
-      <workItem from="1466178535121" duration="1669000" />
+      <workItem from="1466178535121" duration="3253000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ExampleTest - 2016.06.17 at 18h 38m 25s.xml">
-      <configuration name="ExampleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ExampleTest - 2016.06.17 at 18h 38m 48s.xml">
-      <configuration name="ExampleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ExampleTest - 2016.06.17 at 18h 42m 46s.xml">
-      <configuration name="ExampleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ExampleTest - 2016.06.17 at 18h 43m 08s.xml">
-      <configuration name="ExampleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ExampleTest - 2016.06.17 at 18h 51m 24s.xml">
-      <configuration name="ExampleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ExampleTest - 2016.06.17 at 18h 52m 44s.xml">
-      <configuration name="ExampleTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ExampleTest - 2016.06.17 at 19h 03m 10s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
@@ -786,9 +779,27 @@
     <history-entry file="ExampleTest - 2016.06.18 at 00h 42m 12s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ExampleTest - 2016.06.18 at 00h 56m 41s.xml">
+      <configuration name="ExampleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ExampleTest - 2016.06.18 at 00h 56m 49s.xml">
+      <configuration name="ExampleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ExampleTest - 2016.06.18 at 01h 05m 03s.xml">
+      <configuration name="ExampleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ExampleTest - 2016.06.18 at 01h 05m 28s.xml">
+      <configuration name="ExampleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ExampleTest - 2016.06.18 at 01h 09m 30s.xml">
+      <configuration name="ExampleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ExampleTest - 2016.06.18 at 01h 12m 14s.xml">
+      <configuration name="ExampleTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38521000" />
+    <option name="totallyTimeSpent" value="40105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -878,12 +889,14 @@
             <element signature="imports" expanded="true" />
             <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListBooks#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testPrintPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMenuOptions#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMainMenu#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCheckSelectionValid#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testFindPublicationByTitle#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testAskForTitle#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testProcessPublication#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testBookClassPrintNotification#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPrintInvalidOptionMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewBook#0;class#ExampleTest#0" expanded="false" />
@@ -892,7 +905,6 @@
             <element signature="method#testPublicationClassUpdateStatus#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewMovie#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
-            <element signature="method#testCreateNewUser#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testVerifyPassword#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
@@ -915,8 +927,10 @@
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#processPublication#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466181691000" expanded="false" signature="3878:3891" ph="&lt;~&gt;" />
-            <marker date="1466181691000" expanded="false" signature="4240:4253" ph="&lt;~&gt;" />
+            <element signature="method#verifyLogin#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#displayUserDetails#0;class#BibliotecaApp#0" expanded="false" />
+            <marker date="1466183368000" expanded="false" signature="4083:4096" ph="&lt;~&gt;" />
+            <marker date="1466183368000" expanded="false" signature="4445:4458" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -953,12 +967,14 @@
             <element signature="imports" expanded="true" />
             <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListBooks#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testPrintPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMenuOptions#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMainMenu#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCheckSelectionValid#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testFindPublicationByTitle#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testAskForTitle#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testProcessPublication#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testBookClassPrintNotification#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPrintInvalidOptionMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewBook#0;class#ExampleTest#0" expanded="false" />
@@ -967,7 +983,6 @@
             <element signature="method#testPublicationClassUpdateStatus#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewMovie#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
-            <element signature="method#testCreateNewUser#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testVerifyPassword#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
@@ -990,8 +1005,10 @@
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#processPublication#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466181691000" expanded="false" signature="3878:3891" ph="&lt;~&gt;" />
-            <marker date="1466181691000" expanded="false" signature="4240:4253" ph="&lt;~&gt;" />
+            <element signature="method#verifyLogin#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#displayUserDetails#0;class#BibliotecaApp#0" expanded="false" />
+            <marker date="1466183368000" expanded="false" signature="4083:4096" ph="&lt;~&gt;" />
+            <marker date="1466183368000" expanded="false" signature="4445:4458" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1028,12 +1045,14 @@
             <element signature="imports" expanded="true" />
             <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListBooks#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testPrintPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMenuOptions#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMainMenu#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCheckSelectionValid#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testFindPublicationByTitle#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testAskForTitle#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testProcessPublication#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testBookClassPrintNotification#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPrintInvalidOptionMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewBook#0;class#ExampleTest#0" expanded="false" />
@@ -1042,7 +1061,6 @@
             <element signature="method#testPublicationClassUpdateStatus#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewMovie#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
-            <element signature="method#testCreateNewUser#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testVerifyPassword#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
@@ -1065,8 +1083,10 @@
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#processPublication#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466181691000" expanded="false" signature="3878:3891" ph="&lt;~&gt;" />
-            <marker date="1466181691000" expanded="false" signature="4240:4253" ph="&lt;~&gt;" />
+            <element signature="method#verifyLogin#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#displayUserDetails#0;class#BibliotecaApp#0" expanded="false" />
+            <marker date="1466183368000" expanded="false" signature="4083:4096" ph="&lt;~&gt;" />
+            <marker date="1466183368000" expanded="false" signature="4445:4458" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1087,12 +1107,14 @@
             <element signature="imports" expanded="true" />
             <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListBooks#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testPrintPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMenuOptions#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMainMenu#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCheckSelectionValid#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testFindPublicationByTitle#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testAskForTitle#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testProcessPublication#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testBookClassPrintNotification#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPrintInvalidOptionMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewBook#0;class#ExampleTest#0" expanded="false" />
@@ -1101,7 +1123,6 @@
             <element signature="method#testPublicationClassUpdateStatus#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewMovie#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
-            <element signature="method#testCreateNewUser#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testVerifyPassword#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
@@ -1124,8 +1145,10 @@
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#processPublication#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466181691000" expanded="false" signature="3878:3891" ph="&lt;~&gt;" />
-            <marker date="1466181691000" expanded="false" signature="4240:4253" ph="&lt;~&gt;" />
+            <element signature="method#verifyLogin#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#displayUserDetails#0;class#BibliotecaApp#0" expanded="false" />
+            <marker date="1466183368000" expanded="false" signature="4083:4096" ph="&lt;~&gt;" />
+            <marker date="1466183368000" expanded="false" signature="4445:4458" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1153,8 +1176,10 @@
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#processPublication#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466181691000" expanded="false" signature="3878:3891" ph="&lt;~&gt;" />
-            <marker date="1466181691000" expanded="false" signature="4240:4253" ph="&lt;~&gt;" />
+            <element signature="method#verifyLogin#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#displayUserDetails#0;class#BibliotecaApp#0" expanded="false" />
+            <marker date="1466183368000" expanded="false" signature="4083:4096" ph="&lt;~&gt;" />
+            <marker date="1466183368000" expanded="false" signature="4445:4458" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1167,12 +1192,14 @@
             <element signature="imports" expanded="true" />
             <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListBooks#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testPrintPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMenuOptions#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMainMenu#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCheckSelectionValid#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testFindPublicationByTitle#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testAskForTitle#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testProcessPublication#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testBookClassPrintNotification#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPrintInvalidOptionMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewBook#0;class#ExampleTest#0" expanded="false" />
@@ -1181,7 +1208,6 @@
             <element signature="method#testPublicationClassUpdateStatus#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewMovie#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
-            <element signature="method#testCreateNewUser#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testVerifyPassword#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
@@ -1204,8 +1230,10 @@
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#processPublication#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466181691000" expanded="false" signature="3878:3891" ph="&lt;~&gt;" />
-            <marker date="1466181691000" expanded="false" signature="4240:4253" ph="&lt;~&gt;" />
+            <element signature="method#verifyLogin#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#displayUserDetails#0;class#BibliotecaApp#0" expanded="false" />
+            <marker date="1466183368000" expanded="false" signature="4083:4096" ph="&lt;~&gt;" />
+            <marker date="1466183368000" expanded="false" signature="4445:4458" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1218,12 +1246,14 @@
             <element signature="imports" expanded="true" />
             <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListBooks#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testPrintPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMenuOptions#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMainMenu#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCheckSelectionValid#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testFindPublicationByTitle#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testAskForTitle#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testProcessPublication#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testBookClassPrintNotification#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPrintInvalidOptionMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewBook#0;class#ExampleTest#0" expanded="false" />
@@ -1232,7 +1262,6 @@
             <element signature="method#testPublicationClassUpdateStatus#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewMovie#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
-            <element signature="method#testCreateNewUser#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testVerifyPassword#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
@@ -1264,18 +1293,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        <state relative-caret-position="390">
+          <caret line="115" column="46" selection-start-line="115" selection-start-column="46" selection-end-line="115" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#menuStatuses#0;class#BibliotecaApp#0" expanded="false" />
@@ -1287,26 +1308,30 @@
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#processPublication#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466181691000" expanded="false" signature="3878:3891" ph="&lt;~&gt;" />
-            <marker date="1466181691000" expanded="false" signature="4240:4253" ph="&lt;~&gt;" />
+            <element signature="method#verifyLogin#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#displayUserDetails#0;class#BibliotecaApp#0" expanded="false" />
+            <marker date="1466183368000" expanded="false" signature="4083:4096" ph="&lt;~&gt;" />
+            <marker date="1466183368000" expanded="false" signature="4445:4458" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="357" column="62" selection-start-line="357" selection-start-column="62" selection-end-line="357" selection-end-column="62" />
+        <state relative-caret-position="349">
+          <caret line="362" column="40" selection-start-line="362" selection-start-column="40" selection-end-line="362" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListBooks#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testPrintPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testListPublicationDetails#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMenuOptions#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testShowMainMenu#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCheckSelectionValid#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testFindPublicationByTitle#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testAskForTitle#0;class#ExampleTest#0" expanded="false" />
+            <element signature="method#testProcessPublication#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testBookClassPrintNotification#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPrintInvalidOptionMessage#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewBook#0;class#ExampleTest#0" expanded="false" />
@@ -1315,10 +1340,24 @@
             <element signature="method#testPublicationClassUpdateStatus#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testCreateNewMovie#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
-            <element signature="method#testCreateNewUser#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testVerifyPassword#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#842#843#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
           </folding>
         </state>
       </provider>

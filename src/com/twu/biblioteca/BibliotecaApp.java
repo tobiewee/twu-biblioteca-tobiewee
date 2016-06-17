@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
-    public enum menuStatuses {VALID, INVALID, QUIT};
+    public enum menuStatuses {VALID, INVALID, QUIT}
 
     static void listBooks(ArrayList<String> bookList) {
         for(String title: bookList) {
@@ -105,13 +105,19 @@ public class BibliotecaApp {
     }
 
     static boolean verifyLogin(ArrayList<User> userAccounts, String id, String password) {
-        User aUsr;
-        for (int i = 0; i < userAccounts.size(); i++) {
-            aUsr = userAccounts.get(i);
-            if(aUsr.getId().equals(id) && aUsr.verifyPassword(password))
+        for (User userAccount : userAccounts) {
+            if (userAccount.getId().equals(id) &&
+                    userAccount.verifyPassword(password))
                 return true;
         }
         return false;
+    }
+
+    static void displayUserDetails(User user) {
+        String expected = String.format("Name: %s\nEmail: %s\nPhone: %s\n",
+                user.getName(), user.getEmail(), user.getPhoneNum());
+
+        System.out.print(expected);
     }
 
     public static void main(String[] args) {
