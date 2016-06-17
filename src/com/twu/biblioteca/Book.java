@@ -10,6 +10,21 @@ public class Book extends Publication{
                 Y_COL + "s\n", title, creator, year);
     }
 
+    public void printNotification(actions action, boolean success) {
+        switch (action) {
+            case CHECKOUT:
+                if(success) System.out.print("Thank you! Enjoy the book\n");
+                else System.out.print("That book is not available.\n");
+                break;
+            case RETURN:
+                if(success) System.out.print("Thank you for returning the book.\n");
+                else System.out.print("That is not a valid book to return.\n");
+                break;
+            default:
+                break;
+        }
+    }
+
     public String getAuthor() {
         return creator;
     }

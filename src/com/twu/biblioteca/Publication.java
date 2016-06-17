@@ -21,6 +21,21 @@ public abstract class Publication {
 
     public abstract String toString();
 
+    public void printNotification(actions action, boolean success){
+        switch (action) {
+            case CHECKOUT:
+                if(success) System.out.print("Thank you!\n");
+                else System.out.print("That is not available.\n");
+                break;
+            case RETURN:
+                if(success) System.out.print("Thank you for returning.\n");
+                else System.out.print("That is not a valid item to return.\n");
+                break;
+            default:
+                break;
+        }
+    }
+
     public boolean updateStatus(actions action) {
         switch (action) {
             case CHECKOUT:

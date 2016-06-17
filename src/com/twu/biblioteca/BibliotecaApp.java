@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
     public enum menuStatuses {VALID, INVALID, QUIT};
+    public enum publication {BOOK, MOVIE};
 
     static void listBooks(ArrayList<String> bookList) {
         for(String title: bookList) {
@@ -47,7 +48,7 @@ public class BibliotecaApp {
         System.out.print("Select option, and press Enter: ");
     }
 
-    static void listBookDetails(ArrayList<Publication> pubList) {
+    static void listPublicationDetails(ArrayList<Publication> pubList) {
         for(Publication pub: pubList) {
             if (!pub.getOnLoan()) printPublicationDetails(pub);
         }
@@ -57,31 +58,16 @@ public class BibliotecaApp {
         System.out.printf(pub.toString());
     }
 
-    static void printNotification(Publication.actions action, boolean success) {
-        switch (action) {
-            case CHECKOUT:
-                if(success) System.out.print("Thank you! Enjoy the book\n");
-                else System.out.print("That book is not available.\n");
-                break;
-            case RETURN:
-                if(success) System.out.print("Thank you for returning the book.\n");
-                else System.out.print("That is not a valid book to return.\n");
-                break;
-            default:
-                break;
-        }
-    }
-
     static void printInvalidOptionMessage(menuStatuses status) {
         if(status == menuStatuses.INVALID)
             System.out.print("Select a valid option!\n");
     }
 
-    static void askForBookTitle(){
-        System.out.print("Enter book title: ");
+    static void askForTitle(){
+        System.out.print("Enter title: ");
     }
 
-    static int findBookByTitle(String title, ArrayList<Publication> pubList){
+    static int findPublicationByTitle(String title, ArrayList<Publication> pubList){
         int idx = -1;
         for(Publication pub : pubList){
             idx++;
@@ -92,21 +78,21 @@ public class BibliotecaApp {
         return -1;
     }
 
-    static boolean processBook(ArrayList<Publication> bookList, Publication.actions action) {
+    static boolean processPublication(ArrayList<Publication> pubList, Publication.actions action) {
         Scanner in = new Scanner(System.in);
-        askForBookTitle();
+        askForTitle();
         String input = in.nextLine();
 
-        int bookIdx = findBookByTitle(input, bookList);
+        int index = findPublicationByTitle(input, pubList);
 
-        if(bookIdx == -1) {
-            printNotification(action, false);
+        if(index == -1) {
+            pubList.get(0).printNotification(action, false);
             return false;
         }
 
-        boolean status = bookList.get(bookIdx).updateStatus(action);
+        boolean status = pubList.get(index).updateStatus(action);
 
-        printNotification(action, status);
+        pubList.get(index).printNotification(action, status);
 
         return status;
     }
@@ -117,6 +103,8 @@ public class BibliotecaApp {
         mainMenuItemList.add("List books");
         mainMenuItemList.add("Checkout book");
         mainMenuItemList.add("Return book");
+        mainMenuItemList.add("List movies");
+        mainMenuItemList.add("Checkout movie");
 
         ArrayList<Publication> bookList = new ArrayList<Publication>();
         bookList.add(new Book("TW101", "ThoughtWorkers", "2012"));
@@ -148,14 +136,19 @@ public class BibliotecaApp {
                 int option = Integer.parseInt(selection);
                 switch (option){
                     case 1:
-                        listBookDetails(bookList);
+                        listPublicationDetails(bookList);
                         break;
                     case 2:
-                        processBook(bookList, Publication.actions.CHECKOUT);
+                        processPublication(bookList, Publication.actions.CHECKOUT);
                         break;
                     case 3:
-                        processBook(bookList, Publication.actions.RETURN);
+                        processPublication(bookList, Publication.actions.RETURN);
                         break;
+                    case 4:
+                        listPublicationDetails(movieList);
+                        break;
+                    case 5:
+                        processPublication(movieList, Publication.actions.CHECKOUT);
                 }
             }
 
