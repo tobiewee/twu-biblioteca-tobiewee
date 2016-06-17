@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
     public enum menuStatuses {VALID, INVALID, QUIT};
-    public enum publication {BOOK, MOVIE};
 
     static void listBooks(ArrayList<String> bookList) {
         for(String title: bookList) {
@@ -95,6 +94,18 @@ public class BibliotecaApp {
         pubList.get(index).printNotification(action, status);
 
         return status;
+    }
+
+    static void promptLogin() {
+        System.out.print("Enter login id: ");
+    }
+
+    static void promptPassword() {
+        System.out.print("Enter password: ");
+    }
+
+    static boolean verifyLogin(ArrayList<User> userAccounts, String id, String password) {
+        return true;
     }
 
     public static void main(String[] args) {

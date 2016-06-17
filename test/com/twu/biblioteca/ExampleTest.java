@@ -21,7 +21,7 @@ public class ExampleTest {
     private ArrayList<Publication> bookList;
     private String defaultUsrPw;
     private String defaultUsrId;
-    private User test;
+    private ArrayList<User> userAccounts;
 
 
     @Before
@@ -41,7 +41,9 @@ public class ExampleTest {
 
         defaultUsrId = "xxx-xxxx";
         defaultUsrPw = "test123!";
-        test = new User(defaultUsrId);
+
+        userAccounts = new ArrayList<User>();
+        userAccounts.add(new User(defaultUsrId));
     }
 
     @After
@@ -324,13 +326,32 @@ public class ExampleTest {
 
     @Test
     public void testCreateNewUser() {
+        User test = userAccounts.get(0);
         assertEquals(defaultUsrId, test.getId());
         assertEquals(defaultUsrPw, test.getPw());
     }
 
     @Test
     public void testVerifyPassword() {
+        User test = userAccounts.get(0);
         assertEquals(true, test.verifyPassword(defaultUsrPw));
         assertEquals(false, test.verifyPassword("asdjf"));
+    }
+
+    @Test
+    public void testPromptLogin() {
+        BibliotecaApp.promptLogin();
+        assertEquals("Enter login id: ", testOutStream.toString());
+    }
+
+    @Test
+    public void testPromptPassword() {
+        BibliotecaApp.promptPassword();
+        assertEquals("Enter password: ", testOutStream.toString());
+    }
+
+    @Test
+    public void testVerifyLogin() {
+        assertEquals(true, BibliotecaApp.verifyLogin(userAccounts, defaultUsrId, defaultUsrPw));
     }
 }
