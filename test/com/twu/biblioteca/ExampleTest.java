@@ -353,5 +353,8 @@ public class ExampleTest {
     @Test
     public void testVerifyLogin() {
         assertEquals(true, BibliotecaApp.verifyLogin(userAccounts, defaultUsrId, defaultUsrPw));
+        assertEquals(false, BibliotecaApp.verifyLogin(userAccounts, "Lalala", defaultUsrPw));
+        assertEquals(false, BibliotecaApp.verifyLogin(userAccounts, defaultUsrId, "fake"));
+        assertEquals(false, BibliotecaApp.verifyLogin(userAccounts, "Gibberish", "Hmph"));
     }
 }

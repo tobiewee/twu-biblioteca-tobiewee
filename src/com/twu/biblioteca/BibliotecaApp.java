@@ -105,7 +105,13 @@ public class BibliotecaApp {
     }
 
     static boolean verifyLogin(ArrayList<User> userAccounts, String id, String password) {
-        return true;
+        User aUsr;
+        for (int i = 0; i < userAccounts.size(); i++) {
+            aUsr = userAccounts.get(i);
+            if(aUsr.getId().equals(id) && aUsr.verifyPassword(password))
+                return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
