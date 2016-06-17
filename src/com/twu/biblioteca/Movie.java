@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 public class Movie extends Publication {
+    public static final int R_COL = 10;
     private String rating;
 
     public Movie (String title, String director, String year, String rating) {
@@ -30,7 +31,8 @@ public class Movie extends Publication {
     }
 
     public String toString() {
-        return "";
+        return String.format("%-" + T_COL + "s | %-" + C_COL + "s | %-" +
+                Y_COL + "s | %-" + R_COL + "s\n", title, creator, year, rating);
     }
 
     public String getDirector() {

@@ -1,6 +1,10 @@
 package com.twu.biblioteca;
 
 public abstract class Publication {
+    public static final int T_COL = 45;
+    public static final int C_COL = 45;
+    public static final int Y_COL = 4;
+
     public enum actions {CHECKOUT, RETURN}
 
     protected String title;
