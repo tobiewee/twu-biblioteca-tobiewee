@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import com.sun.org.apache.bcel.internal.generic.RET;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,14 +47,14 @@ public class BibliotecaApp {
         System.out.print("Select option, and press Enter: ");
     }
 
-    static void listBookDetails(ArrayList<Book> bookList) {
-        for(Book book: bookList) {
-            if (!book.getOnLoan()) printBookDetails(book);
+    static void listBookDetails(ArrayList<Publication> pubList) {
+        for(Publication pub: pubList) {
+            if (!pub.getOnLoan()) printPublicationDetails(pub);
         }
     }
 
-    static void printBookDetails(Book book) {
-        System.out.printf(book.toString());
+    static void printPublicationDetails(Publication pub) {
+        System.out.printf(pub.toString());
     }
 
     static void printNotification(Publication.actions action, boolean success) {
@@ -83,18 +81,18 @@ public class BibliotecaApp {
         System.out.print("Enter book title: ");
     }
 
-    static int findBookByTitle(String title, ArrayList<Book> bookList){
+    static int findBookByTitle(String title, ArrayList<Publication> pubList){
         int idx = -1;
-        for(Book book : bookList){
+        for(Publication pub : pubList){
             idx++;
-            if(title.equals(book.getTitle())) {
+            if(title.equals(pub.getTitle())) {
                 return idx;
             }
         }
         return -1;
     }
 
-    static boolean processBook(ArrayList<Book> bookList, Publication.actions action) {
+    static boolean processBook(ArrayList<Publication> bookList, Publication.actions action) {
         Scanner in = new Scanner(System.in);
         askForBookTitle();
         String input = in.nextLine();
@@ -120,11 +118,16 @@ public class BibliotecaApp {
         mainMenuItemList.add("Checkout book");
         mainMenuItemList.add("Return book");
 
-        ArrayList<Book> bookList = new ArrayList<Book>();
+        ArrayList<Publication> bookList = new ArrayList<Publication>();
         bookList.add(new Book("TW101", "ThoughtWorkers", "2012"));
         bookList.add(new Book("Just in time debug", "Various", "2011"));
         bookList.add(new Book("Let me Fly", "Testers Union", "2016"));
         bookList.add(new Book("TDD is interesting", "John et. al", "2014"));
+
+        ArrayList<Publication> movieList = new ArrayList<Publication>();
+        movieList.add(new Movie("ThoughtWorks History", "Infant Thomas", "2016", "10"));
+        movieList.add(new Movie("ThoughtWorks Staffing", "Anshul", "2016", ""));
+        movieList.add(new Movie("ThoughtWorks Fun & Games", "TWers", "2016", "unrated"));
 
         Scanner userInput = new Scanner(System.in);
         String selection;

@@ -18,7 +18,7 @@ public class ExampleTest {
     private InputStream originalInStream;
     private ByteArrayOutputStream testOutStream;
     private ArrayList<String> menuOptions;
-    private ArrayList<Book> bookList;
+    private ArrayList<Publication> bookList;
 
     @Before
     public void setUp() {
@@ -28,7 +28,7 @@ public class ExampleTest {
         testOutStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(testOutStream));
 
-        bookList = new ArrayList<Book>();
+        bookList = new ArrayList<Publication>();
         bookList.add(new Book("Jump in TDD", "Unknown", "2017"));
         bookList.add(new Book("Mouse loves cat", "Rubbish Author", "2020"));
 
@@ -58,8 +58,8 @@ public class ExampleTest {
     @Test
     public void testListBooks() {
         ArrayList<String> books = new ArrayList<String>();
-        for (Book book : bookList) {
-            books.add(book.getTitle());
+        for (Publication pub : bookList) {
+            books.add(pub.getTitle());
         }
 
         StringBuilder expectedMessage = new StringBuilder();
@@ -75,19 +75,26 @@ public class ExampleTest {
     }
 
     @Test
-    public void testPrintBookDetails() {
-        Book book = bookList.get(0);
+    public void testPrintPublicationDetails() {
+        Book book = (Book) bookList.get(0);
         String expected = book.toString();
 
-        BibliotecaApp.printBookDetails(book);
+        Movie movie = new Movie("Test", "Director", "2015", "unrated");
+
+        BibliotecaApp.printPublicationDetails(book);
         assertEquals(expected, testOutStream.toString());
+
+        testOutStream.reset();
+
+        BibliotecaApp.printPublicationDetails(movie);
+        assertEquals(movie.toString(), testOutStream.toString());
     }
 
     @Test
     public void testListBookDetails() {
         StringBuilder expected = new StringBuilder();
-        for(Book book: bookList) {
-            if (!book.getOnLoan()) expected.append(book.toString());
+        for(Publication pub: bookList) {
+            if (!pub.getOnLoan()) expected.append(pub.toString());
         }
 
         BibliotecaApp.listBookDetails(bookList);
@@ -96,8 +103,8 @@ public class ExampleTest {
         testOutStream.reset();
         assertTrue(bookList.get(0).updateStatus(Publication.actions.CHECKOUT));
         expected = new StringBuilder();
-        for(Book book: bookList) {
-            if (!book.getOnLoan()) expected.append(book.toString());
+        for(Publication pub: bookList) {
+            if (!pub.getOnLoan()) expected.append(pub.toString());
         }
 
         BibliotecaApp.listBookDetails(bookList);
@@ -249,14 +256,14 @@ public class ExampleTest {
 
     @Test
     public void testBookClassCheckoutBook() {
-        Book book = bookList.get(0);
+        Book book = (Book) bookList.get(0);
         assertEquals(true, book.updateStatus(Publication.actions.CHECKOUT));
         assertEquals(false, book.updateStatus(Publication.actions.CHECKOUT));
     }
 
     @Test
     public void testBookClassReturnBook() {
-        Book book = bookList.get(0);
+        Book book = (Book) bookList.get(0);
         assertEquals(false, book.updateStatus(Publication.actions.RETURN));
         assertTrue(book.updateStatus(Publication.actions.CHECKOUT));
         assertEquals(true, book.updateStatus(Publication.actions.RETURN));
@@ -264,7 +271,7 @@ public class ExampleTest {
 
     @Test
     public void testPublicationClassUpdateStatus() {
-        Book book1 = bookList.get(0);
+        Book book1 = (Book) bookList.get(0);
         assertFalse(book1.getOnLoan());
         assertTrue(book1.updateStatus(Publication.actions.CHECKOUT));
         assertFalse(book1.updateStatus(Publication.actions.CHECKOUT));
