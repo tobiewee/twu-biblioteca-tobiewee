@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
-    public enum bookActions {CHECKOUT, RETURN};
     public enum menuStatuses {VALID, INVALID, QUIT};
 
     static void listBooks(ArrayList<String> bookList) {
@@ -60,7 +59,7 @@ public class BibliotecaApp {
         System.out.printf(book.toString());
     }
 
-    static void printNotification(bookActions action, boolean success) {
+    static void printNotification(Publication.actions action, boolean success) {
         switch (action) {
             case CHECKOUT:
                 if(success) System.out.print("Thank you! Enjoy the book\n");
@@ -95,7 +94,7 @@ public class BibliotecaApp {
         return -1;
     }
 
-    static boolean processBook(ArrayList<Book> bookList, bookActions action) {
+    static boolean processBook(ArrayList<Book> bookList, Publication.actions action) {
         Scanner in = new Scanner(System.in);
         askForBookTitle();
         String input = in.nextLine();
@@ -107,12 +106,7 @@ public class BibliotecaApp {
             return false;
         }
 
-        boolean status = false;
-
-        if (action == bookActions.CHECKOUT)
-            status = bookList.get(bookIdx).checkoutBook();
-        else if (action == bookActions.RETURN)
-            status = bookList.get(bookIdx).returnBook();
+        boolean status = bookList.get(bookIdx).updateStatus(action);
 
         printNotification(action, status);
 
@@ -154,10 +148,10 @@ public class BibliotecaApp {
                         listBookDetails(bookList);
                         break;
                     case 2:
-                        processBook(bookList, bookActions.CHECKOUT);
+                        processBook(bookList, Publication.actions.CHECKOUT);
                         break;
                     case 3:
-                        processBook(bookList, bookActions.RETURN);
+                        processBook(bookList, Publication.actions.RETURN);
                         break;
                 }
             }

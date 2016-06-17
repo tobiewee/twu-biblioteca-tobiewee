@@ -94,7 +94,7 @@ public class ExampleTest {
         assertEquals(expected.toString(), testOutStream.toString());
 
         testOutStream.reset();
-        assertTrue(bookList.get(0).checkoutBook());
+        assertTrue(bookList.get(0).updateStatus(Publication.actions.CHECKOUT));
         expected = new StringBuilder();
         for(Book book: bookList) {
             if (!book.getOnLoan()) expected.append(book.toString());
@@ -175,25 +175,25 @@ public class ExampleTest {
 
         //tests
         setInputString(title0);
-        assertEquals(true, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.CHECKOUT));
+        assertEquals(true, BibliotecaApp.processBook(bookList, Publication.actions.CHECKOUT));
 
         setInputString(title0);
-        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.CHECKOUT));
+        assertEquals(false, BibliotecaApp.processBook(bookList, Publication.actions.CHECKOUT));
 
         setInputString(title0);
-        assertEquals(true, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.RETURN));
+        assertEquals(true, BibliotecaApp.processBook(bookList, Publication.actions.RETURN));
 
         setInputString(title0);
-        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.RETURN));
+        assertEquals(false, BibliotecaApp.processBook(bookList, Publication.actions.RETURN));
 
         setInputString(title1);
-        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.RETURN));
+        assertEquals(false, BibliotecaApp.processBook(bookList, Publication.actions.RETURN));
 
         setInputString(notInList);
-        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.CHECKOUT));
+        assertEquals(false, BibliotecaApp.processBook(bookList, Publication.actions.CHECKOUT));
 
         setInputString(notInList);
-        assertEquals(false, BibliotecaApp.processBook(bookList, BibliotecaApp.bookActions.RETURN));
+        assertEquals(false, BibliotecaApp.processBook(bookList, Publication.actions.RETURN));
     }
 
     @Test
@@ -204,22 +204,22 @@ public class ExampleTest {
         String returnBkSucc = "Thank you for returning the book.\n";
         String returnBkFail = "That is not a valid book to return.\n";
 
-        BibliotecaApp.printNotification(BibliotecaApp.bookActions.CHECKOUT, true);
+        BibliotecaApp.printNotification(Publication.actions.CHECKOUT, true);
         assertEquals(chkoutBkSucc, testOutStream.toString());
 
         testOutStream.reset();
 
-        BibliotecaApp.printNotification(BibliotecaApp.bookActions.CHECKOUT, false);
+        BibliotecaApp.printNotification(Publication.actions.CHECKOUT, false);
         assertEquals(chkoutBkFail, testOutStream.toString());
 
         testOutStream.reset();
 
-        BibliotecaApp.printNotification(BibliotecaApp.bookActions.RETURN, true);
+        BibliotecaApp.printNotification(Publication.actions.RETURN, true);
         assertEquals(returnBkSucc, testOutStream.toString());
 
         testOutStream.reset();
 
-        BibliotecaApp.printNotification(BibliotecaApp.bookActions.RETURN, false);
+        BibliotecaApp.printNotification(Publication.actions.RETURN, false);
         assertEquals(returnBkFail, testOutStream.toString());
     }
 
@@ -238,15 +238,25 @@ public class ExampleTest {
     @Test
     public void testBookClassCheckoutBook() {
         Book book = bookList.get(0);
-        assertEquals(true, book.checkoutBook());
-        assertEquals(false, book.checkoutBook());
+        assertEquals(true, book.updateStatus(Publication.actions.CHECKOUT));
+        assertEquals(false, book.updateStatus(Publication.actions.CHECKOUT));
     }
 
     @Test
     public void testBookClassReturnBook() {
         Book book = bookList.get(0);
-        assertEquals(false, book.returnBook());
-        book.checkoutBook();
-        assertEquals(true, book.returnBook());
+        assertEquals(false, book.updateStatus(Publication.actions.RETURN));
+        assertTrue(book.updateStatus(Publication.actions.CHECKOUT));
+        assertEquals(true, book.updateStatus(Publication.actions.RETURN));
+    }
+
+    @Test
+    public void testPublicationClassUpdateStatus() {
+        Book book1 = bookList.get(0);
+        assertFalse(book1.getOnLoan());
+        assertTrue(book1.updateStatus(Publication.actions.CHECKOUT));
+        assertFalse(book1.updateStatus(Publication.actions.CHECKOUT));
+        assertTrue(book1.updateStatus(Publication.actions.RETURN));
+        assertFalse(book1.updateStatus(Publication.actions.RETURN));
     }
 }
