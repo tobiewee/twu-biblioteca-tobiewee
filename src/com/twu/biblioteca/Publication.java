@@ -36,6 +36,10 @@ public abstract class Publication {
         return title;
     }
 
+    public String getYear() {
+        return year;
+    }
+
     public boolean getOnLoan() {
         return onLoan;
     }

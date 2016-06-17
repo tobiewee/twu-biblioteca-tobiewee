@@ -236,6 +236,18 @@ public class ExampleTest {
     }
 
     @Test
+    public void testCreateNewBook() {
+        String title = "I am such a Legend";
+        String author = "Binny K.";
+        String year = "2016";
+
+        Book test = new Book(title, author, year);
+        assertEquals(title, test.getTitle());
+        assertEquals(author, test.getAuthor());
+        assertEquals(year, test.getYear());
+    }
+
+    @Test
     public void testBookClassCheckoutBook() {
         Book book = bookList.get(0);
         assertEquals(true, book.updateStatus(Publication.actions.CHECKOUT));
@@ -258,5 +270,38 @@ public class ExampleTest {
         assertFalse(book1.updateStatus(Publication.actions.CHECKOUT));
         assertTrue(book1.updateStatus(Publication.actions.RETURN));
         assertFalse(book1.updateStatus(Publication.actions.RETURN));
+    }
+
+    @Test
+    public void testCreateNewMovie() {
+        String title = "I am such a Legend";
+        String director = "Funnyguy123 K.";
+        String year = "2016";
+        String rating = "5";
+        Movie test = new Movie(title, director, year, rating);
+        assertEquals(title, test.getTitle());
+        assertEquals(director, test.getDirector());
+        assertEquals(year, test.getYear());
+        assertEquals(rating, test.getRating());
+    }
+
+    @Test
+    public void testMovieClassSetRating() {
+        String rating = "5";
+        String notRated = "unrated";
+        String minRating = "1";
+        String maxRating = "10";
+        Movie test = new Movie("", "", "", "");
+        assertEquals(notRated, test.getRating());
+
+        assertEquals(rating, test.setRating(rating));
+        assertEquals(minRating, test.setRating("0"));
+        assertEquals(maxRating, test.setRating("11"));
+
+        String currentRating = test.getRating();
+        assertEquals(currentRating, test.setRating("asdf"));
+        assertEquals(currentRating, test.setRating(""));
+
+        assertEquals(notRated, test.setRating("unrated"));
     }
 }

@@ -13,4 +13,8 @@ public class Book extends Publication{
         return String.format("%-" + T_COL + "s | %-" + A_COL + "s | %-" +
                 Y_COL + "s\n", title, creator, year);
     }
+
+    public String getAuthor() {
+        return creator;
+    }
 }
