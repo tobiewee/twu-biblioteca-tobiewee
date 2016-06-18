@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b6e1252-6b78-4fe5-9934-bddc38729bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/BibliotecaApp$menuStatuses.class" afterPath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/BibliotecaApp$menuStatuses.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/BibliotecaApp.class" afterPath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/BibliotecaApp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/Publication$1.class" afterPath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/Publication$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/Publication.class" afterPath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/Publication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/User.class" afterPath="$PROJECT_DIR$/out/production/twu-biblioteca-tobiewee/com/twu/biblioteca/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/twu-biblioteca-tobiewee/com/twu/biblioteca/ExampleTest.class" afterPath="$PROJECT_DIR$/out/test/twu-biblioteca-tobiewee/com/twu/biblioteca/ExampleTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Publication.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Publication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/User.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" />
     </list>
     <ignored path="twu-biblioteca-tobiewee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +32,8 @@
           <file leaf-file-name="ExampleTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1916">
-                  <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+                <state relative-caret-position="465">
+                  <caret line="390" column="5" selection-start-line="390" selection-start-column="5" selection-end-line="390" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
@@ -75,8 +67,8 @@
           <file leaf-file-name="BibliotecaApp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="181" column="37" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
+                <state relative-caret-position="217">
+                  <caret line="124" column="15" selection-start-line="124" selection-start-column="15" selection-end-line="124" selection-end-column="15" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="class#menuStatuses#0;class#BibliotecaApp#0" expanded="false" />
@@ -87,8 +79,8 @@
                     <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
                     <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
                     <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-                    <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-                    <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+                    <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+                    <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
                   </folding>
                 </state>
               </provider>
@@ -107,7 +99,7 @@
           <file leaf-file-name="Movie.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="514">
+                <state relative-caret-position="525">
                   <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
                   <folding />
                 </state>
@@ -117,7 +109,7 @@
           <file leaf-file-name="Publication.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Publication.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
+                <state relative-caret-position="540">
                   <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
                   <folding>
                     <element signature="e#1738#1739#0" expanded="true" />
@@ -173,9 +165,9 @@
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/User.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/UserDetails.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Publication.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/User.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
       </list>
     </option>
   </component>
@@ -214,7 +206,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -272,7 +264,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -772,13 +764,11 @@
       <workItem from="1466178535121" duration="3375000" />
       <workItem from="1466212360687" duration="3466000" />
       <workItem from="1466261005060" duration="1761000" />
+      <workItem from="1466263346570" duration="150000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ExampleTest - 2016.06.18 at 23h 08m 18s.xml">
-      <configuration name="ExampleTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ExampleTest - 2016.06.18 at 23h 11m 10s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
@@ -806,9 +796,12 @@
     <history-entry file="ExampleTest - 2016.06.18 at 23h 15m 35s.xml">
       <configuration name="ExampleTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ExampleTest - 2016.06.18 at 23h 23m 51s.xml">
+      <configuration name="ExampleTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45454000" />
+    <option name="totallyTimeSpent" value="45604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -933,8 +926,8 @@
             <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1025,8 +1018,8 @@
             <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1117,8 +1110,8 @@
             <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1195,8 +1188,8 @@
             <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1273,8 +1266,8 @@
             <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1330,8 +1323,8 @@
             <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1358,8 +1351,8 @@
             <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1407,8 +1400,8 @@
             <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
             <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1450,6 +1443,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Publication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+          <folding>
+            <element signature="e#1738#1739#0" expanded="true" />
+            <element signature="e#1769#1770#0" expanded="true" />
+            <element signature="e#1817#1818#0" expanded="true" />
+            <element signature="e#1857#1858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1464,10 +1478,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="124" column="15" selection-start-line="124" selection-start-column="15" selection-end-line="124" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#menuStatuses#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#listBooks#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#showMenuOptions#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#checkSelectionValid#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#showMainMenu#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
+            <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
+            <marker date="1466263428000" expanded="false" signature="4613:4626" ph="&lt;~&gt;" />
+            <marker date="1466263428000" expanded="false" signature="4975:4988" ph="&lt;~&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1916">
-          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+        <state relative-caret-position="465">
+          <caret line="390" column="5" selection-start-line="390" selection-start-column="5" selection-end-line="390" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#testDisplayWelcomeMessage#0;class#ExampleTest#0" expanded="false" />
@@ -1489,47 +1523,6 @@
             <element signature="method#testMovieClassSetRating#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptLogin#0;class#ExampleTest#0" expanded="false" />
             <element signature="method#testPromptPassword#0;class#ExampleTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Publication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-          <folding>
-            <element signature="e#1738#1739#0" expanded="true" />
-            <element signature="e#1769#1770#0" expanded="true" />
-            <element signature="e#1817#1818#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="181" column="37" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#menuStatuses#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#listBooks#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#showMenuOptions#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#checkSelectionValid#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#showMainMenu#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#listPublicationDetails#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#printInvalidOptionMessage#0;class#BibliotecaApp#0" expanded="false" />
-            <element signature="method#findPublicationByTitle#0;class#BibliotecaApp#0" expanded="false" />
-            <marker date="1466261942000" expanded="false" signature="4544:4557" ph="&lt;~&gt;" />
-            <marker date="1466261942000" expanded="false" signature="4906:4919" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>

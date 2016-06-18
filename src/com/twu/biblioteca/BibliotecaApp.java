@@ -111,6 +111,8 @@ public class BibliotecaApp {
     }
 
     static boolean verifyLogin(ArrayList<User> userAccounts, String id, String password) {
+        if(!id.matches(User.regexPattern))
+            return false;
         User usr = getUser(userAccounts, id);
         if(usr != null) {
             if(usr.verifyPassword(password))
