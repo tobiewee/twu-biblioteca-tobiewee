@@ -114,10 +114,10 @@ public class BibliotecaApp {
     }
 
     static void displayUserDetails(User user) {
-        String expected = String.format("Name: %s\nEmail: %s\nPhone: %s\n",
+        String usrInfo = String.format("Name: %s\nEmail: %s\nPhone: %s\n",
                 user.getName(), user.getEmail(), user.getPhoneNum());
 
-        System.out.print(expected);
+        System.out.print(usrInfo);
     }
 
     public static void main(String[] args) {

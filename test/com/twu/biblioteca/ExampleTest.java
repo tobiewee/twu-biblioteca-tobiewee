@@ -44,6 +44,7 @@ public class ExampleTest {
 
         userAccounts = new ArrayList<User>();
         userAccounts.add(new User(defaultUsrId, "John Dow", "Johnny@LOL.com", "+0912398743"));
+        userAccounts.add(new User("xxx-xxxy", "JK Laughing", "haha@Best.com", "+743725312"));
     }
 
     @After
@@ -332,10 +333,21 @@ public class ExampleTest {
     }
 
     @Test
-    public void testVerifyPassword() {
+    public void testUserClassVerifyPassword() {
         User test = userAccounts.get(0);
         assertEquals(true, test.verifyPassword(defaultUsrPw));
         assertEquals(false, test.verifyPassword("asdjf"));
+    }
+
+    @Test
+    public void testUserClassEquals() {
+        User usr1 = userAccounts.get(0);
+        User usr2 = userAccounts.get(1);
+        User usr3 = new User(usr1.getId(), usr2.getName(), usr1.getEmail(), usr2.getPhoneNum());
+
+        assertEquals(true, usr1.equals(usr1));
+        assertEquals(false, usr1.equals(usr2));
+        assertEquals(true, usr1.equals(usr3));
     }
 
     @Test

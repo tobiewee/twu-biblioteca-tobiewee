@@ -15,6 +15,10 @@ public class User {
         this.phoneNum = phoneNum;
     }
 
+    public boolean equals(User other) {
+        return this.loginID.equals(other.loginID);
+    }
+
     public String getId() {
         return loginID;
     }
