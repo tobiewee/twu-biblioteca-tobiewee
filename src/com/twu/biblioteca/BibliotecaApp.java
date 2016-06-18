@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
-    public enum menuStatuses {VALID, INVALID, QUIT}
+    enum menuStatuses {VALID, INVALID, QUIT}
 
     static void listBooks(ArrayList<String> bookList) {
         for(String title: bookList) {
@@ -77,7 +77,7 @@ public class BibliotecaApp {
         return -1;
     }
 
-    static boolean processPublication(ArrayList<Publication> pubList, Publication.actions action) {
+    static boolean processPublication(ArrayList<Publication> pubList, Publication.actions action, String userid) {
         Scanner in = new Scanner(System.in);
         askForTitle();
         String input = in.nextLine();
@@ -89,9 +89,15 @@ public class BibliotecaApp {
             return false;
         }
 
-        boolean status = pubList.get(index).updateStatus(action);
+        Publication pub = pubList.get(index);
+        boolean status = pub.updateStatus(action);
 
-        pubList.get(index).printNotification(action, status);
+        if(status && action == Publication.actions.CHECKOUT)
+            pub.setBorrower(userid);
+        else if (status && action == Publication.actions.RETURN)
+            pub.setBorrower(null);
+
+        pub.printNotification(action, status);
 
         return status;
     }
@@ -186,16 +192,16 @@ public class BibliotecaApp {
                         listPublicationDetails(bookList);
                         break;
                     case 2:
-                        processPublication(bookList, Publication.actions.CHECKOUT);
+                        processPublication(bookList, Publication.actions.CHECKOUT, userid);
                         break;
                     case 3:
-                        processPublication(bookList, Publication.actions.RETURN);
+                        processPublication(bookList, Publication.actions.RETURN, userid);
                         break;
                     case 4:
                         listPublicationDetails(movieList);
                         break;
                     case 5:
-                        processPublication(movieList, Publication.actions.CHECKOUT);
+                        processPublication(movieList, Publication.actions.CHECKOUT, userid);
                         break;
                     case 6:
                         User toDisp = getUser(accounts, userid);

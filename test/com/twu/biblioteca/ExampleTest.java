@@ -44,7 +44,7 @@ public class ExampleTest {
 
         userAccounts = new ArrayList<User>();
         userAccounts.add(new User(defaultUsrId, "John Dow", "Johnny@LOL.com", "+0912398743"));
-        userAccounts.add(new User("xxx-xxxy", "JK Laughing", "haha@Best.com", "+743725312"));
+        userAccounts.add(new User("xx1-xxxy", "JK Laughing", "haha@Best.com", "+743725312"));
     }
 
     @After
@@ -190,28 +190,29 @@ public class ExampleTest {
         String title0 = bookList.get(0).getTitle();
         String title1 = bookList.get(1).getTitle();
         String notInList = "La la la";
+        String usrID = userAccounts.get(0).getId();
 
         //tests
         setInputString(title0);
-        assertEquals(true, BibliotecaApp.processPublication(bookList, Publication.actions.CHECKOUT));
+        assertEquals(true, BibliotecaApp.processPublication(bookList, Publication.actions.CHECKOUT, usrID));
 
         setInputString(title0);
-        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.CHECKOUT));
+        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.CHECKOUT, usrID));
 
         setInputString(title0);
-        assertEquals(true, BibliotecaApp.processPublication(bookList, Publication.actions.RETURN));
+        assertEquals(true, BibliotecaApp.processPublication(bookList, Publication.actions.RETURN, usrID));
 
         setInputString(title0);
-        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.RETURN));
+        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.RETURN, usrID));
 
         setInputString(title1);
-        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.RETURN));
+        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.RETURN, usrID));
 
         setInputString(notInList);
-        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.CHECKOUT));
+        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.CHECKOUT, usrID));
 
         setInputString(notInList);
-        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.RETURN));
+        assertEquals(false, BibliotecaApp.processPublication(bookList, Publication.actions.RETURN, usrID));
     }
 
     @Test
@@ -328,6 +329,7 @@ public class ExampleTest {
     @Test
     public void testCreateNewUser() {
         User test = userAccounts.get(0);
+        assertTrue(test.isInit());
         assertEquals(defaultUsrId, test.getId());
         assertEquals(defaultUsrPw, test.getPw());
     }
@@ -335,6 +337,7 @@ public class ExampleTest {
     @Test
     public void testUserClassVerifyPassword() {
         User test = userAccounts.get(0);
+        assertTrue(test.isInit());
         assertEquals(true, test.verifyPassword(defaultUsrPw));
         assertEquals(false, test.verifyPassword("asdjf"));
     }
@@ -342,8 +345,14 @@ public class ExampleTest {
     @Test
     public void testUserClassEquals() {
         User usr1 = userAccounts.get(0);
+        assertTrue(usr1.isInit());
+
         User usr2 = userAccounts.get(1);
+        assertTrue(usr2.isInit());
+
         User usr3 = new User(usr1.getId(), usr2.getName(), usr1.getEmail(), usr2.getPhoneNum());
+        assertTrue(usr3.isInit());
+
 
         assertEquals(true, usr1.equals(usr1));
         assertEquals(false, usr1.equals(usr2));
@@ -373,6 +382,8 @@ public class ExampleTest {
     @Test
     public void testDisplayUserDetails() {
         User test = userAccounts.get(0);
+        assertTrue(test.isInit());
+
         String expected = String.format("Name: %s\nEmail: %s\nPhone: %s\n",
                 test.getName(), test.getEmail(), test.getPhoneNum());
         BibliotecaApp.displayUserDetails(test);
@@ -382,6 +393,8 @@ public class ExampleTest {
     @Test
     public void testGetUser() {
         User expected = userAccounts.get(0);
+        assertTrue(expected.isInit());
+
         assertEquals(expected, BibliotecaApp.getUser(userAccounts, expected.getId()));
         assertEquals(null, BibliotecaApp.getUser(userAccounts, "test"));
     }

@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 public class User {
+    public static final String regexPattern = "([0-9]|[a-z]|[A-Z]){3}-([0-9]|[a-z]|[A-Z]){4}";
     private String loginID;
     private String password;
     private String name;
@@ -8,11 +9,17 @@ public class User {
     private String phoneNum;
 
     public User(String loginID, String name, String email, String phoneNum) {
-        this.loginID = loginID;
-        password = "test123!";
-        this.name = name;
-        this.email = email;
-        this.phoneNum = phoneNum;
+        if(loginID.matches(regexPattern)) {
+            this.loginID = loginID;
+            password = "test123!";
+            this.name = name;
+            this.email = email;
+            this.phoneNum = phoneNum;
+        }
+    }
+
+    public boolean isInit(){
+        return !(loginID==null || loginID.isEmpty());
     }
 
     public boolean equals(User other) {

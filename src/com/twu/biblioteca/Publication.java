@@ -11,12 +11,14 @@ public abstract class Publication {
     protected String creator;
     protected String year;
     protected boolean onLoan;
+    protected String borrower;
 
     public Publication(String title, String creator, String year) {
         this.title = title;
         this.creator = creator;
         this.year = year;
         onLoan = false;
+        borrower = null;
     }
 
     public abstract String toString();
@@ -61,5 +63,13 @@ public abstract class Publication {
 
     public boolean getOnLoan() {
         return onLoan;
+    }
+
+    public String getBorrower() {
+        return borrower;
+    }
+
+    public void setBorrower(String borrower) {
+        this.borrower = borrower;
     }
 }
