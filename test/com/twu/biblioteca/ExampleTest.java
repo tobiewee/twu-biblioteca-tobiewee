@@ -378,4 +378,11 @@ public class ExampleTest {
         BibliotecaApp.displayUserDetails(test);
         assertEquals(expected, testOutStream.toString());
     }
+
+    @Test
+    public void testGetUser() {
+        User expected = userAccounts.get(0);
+        assertEquals(expected, BibliotecaApp.getUser(userAccounts, expected.getId()));
+        assertEquals(null, BibliotecaApp.getUser(userAccounts, "test"));
+    }
 }

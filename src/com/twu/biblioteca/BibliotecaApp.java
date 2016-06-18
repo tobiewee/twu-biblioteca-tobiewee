@@ -105,12 +105,20 @@ public class BibliotecaApp {
     }
 
     static boolean verifyLogin(ArrayList<User> userAccounts, String id, String password) {
-        for (User userAccount : userAccounts) {
-            if (userAccount.getId().equals(id) &&
-                    userAccount.verifyPassword(password))
+        User usr = getUser(userAccounts, id);
+        if(usr != null) {
+            if(usr.verifyPassword(password))
                 return true;
         }
         return false;
+    }
+
+    static User getUser(ArrayList<User> userAccounts, String id){
+        for (User userAccount : userAccounts) {
+            if(userAccount.getId().equals(id))
+                return userAccount;
+        }
+        return null;
     }
 
     static void displayUserDetails(User user) {
@@ -122,12 +130,13 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         // Setup of some "pre-existing" data.
-        /*ArrayList<String> mainMenuItemList = new ArrayList<String>();
+        ArrayList<String> mainMenuItemList = new ArrayList<String>();
         mainMenuItemList.add("List books");
         mainMenuItemList.add("Checkout book");
         mainMenuItemList.add("Return book");
         mainMenuItemList.add("List movies");
         mainMenuItemList.add("Checkout movie");
+        mainMenuItemList.add("View my info");
 
         ArrayList<Publication> bookList = new ArrayList<Publication>();
         bookList.add(new Book("TW101", "ThoughtWorkers", "2012"));
@@ -140,12 +149,27 @@ public class BibliotecaApp {
         movieList.add(new Movie("ThoughtWorks Staffing", "Anshul", "2016", ""));
         movieList.add(new Movie("ThoughtWorks Fun & Games", "TWers", "2016", "unrated"));
 
+        ArrayList<User> accounts = new ArrayList<User>();
+        accounts.add(new User("123-1234", "First User", "firstone@lib.com", "+0129384521"));
+        accounts.add(new User("123-1235", "Second User", "scondone@lib.com", "+0129789521"));
+        accounts.add(new User("123-1299", "Third User", "thirdone@lib.com", "+0129312321"));
+
         Scanner userInput = new Scanner(System.in);
         String selection;
         menuStatuses status;
 
+        String userid;
+        String userpw;
+
         // Main Program Flow
         displayWelcomeMessage();
+
+        do {
+            promptLogin();
+            userid = userInput.nextLine();
+            promptPassword();
+            userpw = userInput.nextLine();
+        } while(!verifyLogin(accounts, userid, userpw));
 
         do{
             showMainMenu(mainMenuItemList);
@@ -172,10 +196,15 @@ public class BibliotecaApp {
                         break;
                     case 5:
                         processPublication(movieList, Publication.actions.CHECKOUT);
+                        break;
+                    case 6:
+                        User toDisp = getUser(accounts, userid);
+                        displayUserDetails(toDisp);
+                        break;
                 }
             }
 
             System.out.println();
-        } while (status != menuStatuses.QUIT);*/
+        } while (status != menuStatuses.QUIT);
     }
 }
