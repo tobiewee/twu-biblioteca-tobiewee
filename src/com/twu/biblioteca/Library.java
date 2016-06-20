@@ -1,11 +1,18 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Map;
 
 class Library {
     enum publicationType {BOOK, MOVIE}
+    enum actions {CHECKOUT, RETURN}
+
     private ArrayList<Publication> availableBooks;
+    private ArrayList<Publication> borrowedBooks;
     private ArrayList<Publication> availableMovies;
+    private ArrayList<Publication> borrowedMovies;
+    private Map<Publication, String> loanedBy;
 
     Library() {
         availableBooks = new ArrayList<Publication>();
@@ -14,64 +21,71 @@ class Library {
         availableBooks.add(new Book("Let me Fly", "Testers Union", "2016"));
         availableBooks.add(new Book("TDD is interesting", "John et. al", "2014"));
 
+        borrowedBooks = new ArrayList<Publication>();
+
         availableMovies = new ArrayList<Publication>();
         availableMovies.add(new Movie("ThoughtWorks History", "Infant Thomas", "2016", "10"));
         availableMovies.add(new Movie("ThoughtWorks Staffing", "Anshul", "2016", ""));
         availableMovies.add(new Movie("ThoughtWorks Fun & Games", "TWers", "2016", "unrated"));
+
+        borrowedMovies = new ArrayList<Publication>();
+
+        loanedBy = new Hashtable<Publication, String>();
     }
 
-    private ArrayList<Publication> getPublicationList(publicationType type) {
+    ArrayList<Publication> getPublicationList(publicationType type, actions action) {
         switch(type) {
             case BOOK:
-                return availableBooks;
+                if(action == actions.CHECKOUT) return availableBooks;
+                else return borrowedBooks;
             case MOVIE:
-                return availableMovies;
+                if(action == actions.CHECKOUT) return availableMovies;
+                else return borrowedMovies;
         }
         return null;
     }
 
-    void listPublicationDetails(publicationType type) {
-        ArrayList<Publication> pubList = getPublicationList(type);
-
-        for(Publication pub: pubList) {
-            if (!pub.getOnLoan()) System.out.printf(pub.toString());
-        }
-    }
-
-    private int findPublicationByTitle(String title, publicationType type){
-        int idx = -1;
-        ArrayList<Publication> pubList = getPublicationList(type);
+    private Publication findPublicationByTitle(String title, publicationType type, actions action){
+        ArrayList<Publication> pubList = getPublicationList(type, action);
 
         for(Publication pub : pubList){
-            idx++;
             if(title.equals(pub.getTitle())) {
-                return idx;
+                return pub;
             }
         }
-
-        return -1;
+        return null;
     }
 
-    boolean processPublication(String input, Publication.actions action, publicationType type, String userid) {
-        ArrayList<Publication> pubList = getPublicationList(type);
+    private void transferFromAToB(Publication pub, ArrayList<Publication> A, ArrayList<Publication> B){
+        A.remove(pub);
+        B.add(pub);
+    }
 
-        int index = findPublicationByTitle(input, type);
+    boolean processPublication(String title, actions action, publicationType type, String userid) {
+        Publication pub = findPublicationByTitle(title, type, action);
 
-        if(index == -1) {
-            pubList.get(0).printNotification(action, false);
+        if (pub == null) {
             return false;
         }
 
-        Publication pub = pubList.get(index);
-        boolean status = pub.updateStatus(action);
+        if (action == actions.CHECKOUT) {
+            if (type == publicationType.BOOK)
+                transferFromAToB(pub, availableBooks, borrowedBooks);
+            else
+                transferFromAToB(pub, availableMovies, borrowedMovies);
+            loanedBy.put(pub, userid);
+        } else if (action == actions.RETURN) {
+            if (type == publicationType.BOOK)
+                transferFromAToB(pub, borrowedBooks, availableBooks);
+            else
+                transferFromAToB(pub, borrowedMovies, availableMovies);
+            loanedBy.remove(pub);
+        }
 
-        if(status && action == Publication.actions.CHECKOUT)
-            pub.setBorrower(userid);
-        else if (status && action == Publication.actions.RETURN)
-            pub.setBorrower(null);
+        return true;
+    }
 
-        pub.printNotification(action, status);
-
-        return status;
+    String getBorrower(Publication pub){
+        return loanedBy.get(pub);
     }
 }

@@ -1,15 +1,15 @@
 package com.twu.biblioteca;
 
 public class Movie extends Publication {
-    public static final int R_COL = 10;
+    private static final int R_COL = 10;
     private String rating;
 
-    public Movie (String title, String director, String year, String rating) {
+    Movie(String title, String director, String year, String rating) {
         super(title, director, year);
         setRating(rating);
     }
 
-    public String setRating(String rating) {
+    String setRating(String rating) {
         int iRating;
         try{
             iRating = Integer.parseInt(rating);
@@ -35,11 +35,11 @@ public class Movie extends Publication {
                 Y_COL + "s | %-" + R_COL + "s\n", title, creator, year, rating);
     }
 
-    public String getDirector() {
+    String getDirector() {
         return creator;
     }
 
-    public String getRating() {
+    String getRating() {
         return rating;
     }
 }

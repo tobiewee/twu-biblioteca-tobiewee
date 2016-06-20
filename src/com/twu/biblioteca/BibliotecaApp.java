@@ -50,9 +50,51 @@ public class BibliotecaApp {
         System.out.print("Enter title: ");
     }
 
-    static String getUserInput() {
+    private static String getUserInput() {
         Scanner in = new Scanner(System.in);
         return in.nextLine();
+    }
+
+    static void printPublication (Publication pub) {
+        System.out.print(pub.toString());
+    }
+
+    static void listPublications(ArrayList<Publication> pubList) {
+        for (Publication publication : pubList) {
+            printPublication(publication);
+        }
+    }
+
+    static void printNotification(Library.actions action, boolean success, boolean book){
+        switch (action) {
+            case CHECKOUT:
+                if(success){
+                    System.out.print("Thank you!");
+                    if(book) System.out.print(" Enjoy the book");
+                }
+                else{
+                    System.out.print("That ");
+                    if(book) System.out.print("book ");
+                    System.out.print("is not available.");
+                }
+                break;
+            case RETURN:
+                if(success){
+                    System.out.print("Thank you for returning");
+                    if(book) System.out.print(" the book.");
+                    else System.out.print(".");
+                }
+                else{
+                    System.out.print("That is not a valid");
+                    if(book) System.out.print(" book");
+                    else System.out.print(" item");
+                    System.out.print(" to return.");
+                }
+                break;
+            default:
+                break;
+        }
+        System.out.print('\n');
     }
 
     public static void main(String[] args) {
@@ -72,9 +114,9 @@ public class BibliotecaApp {
         accounts.add(new User("123-1235", "Second User", "scondone@lib.com", "+0129789521"));
         accounts.add(new User("123-1299", "Third User", "thirdone@lib.com", "+0129312321"));
 
-        Scanner userInput = new Scanner(System.in);
         String selection;
         String input;
+        boolean processStatus;
         menuStatuses status;
 
         String userid;
@@ -92,7 +134,7 @@ public class BibliotecaApp {
 
         do{
             showMainMenu(mainMenuItemList);
-            selection = userInput.next();
+            selection = getUserInput();
 
             status = checkSelectionValid(mainMenuItemList, selection);
 
@@ -102,25 +144,29 @@ public class BibliotecaApp {
                 int option = Integer.parseInt(selection);
                 switch (option){
                     case 1:
-                        theLibrary.listPublicationDetails(Library.publicationType.BOOK);
+                        listPublications(theLibrary.getPublicationList(Library.publicationType.BOOK, Library.actions.CHECKOUT));
                         break;
                     case 2:
                         askForTitle();
                         input = getUserInput();
-                        theLibrary.processPublication(input, Publication.actions.CHECKOUT, Library.publicationType.BOOK, userid);
+                        processStatus = theLibrary.processPublication(input, Library.actions.CHECKOUT, Library.publicationType.BOOK, userid);
+                        printNotification(Library.actions.CHECKOUT, processStatus, true);
                         break;
                     case 3:
                         askForTitle();
                         input = getUserInput();
-                        theLibrary.processPublication(input, Publication.actions.RETURN, Library.publicationType.BOOK, userid);
+                        processStatus = theLibrary.processPublication(input, Library.actions.RETURN, Library.publicationType.BOOK, userid);
+                        printNotification(Library.actions.RETURN, processStatus, true);
+
                         break;
                     case 4:
-                        theLibrary.listPublicationDetails(Library.publicationType.MOVIE);
+                        listPublications(theLibrary.getPublicationList(Library.publicationType.MOVIE, Library.actions.CHECKOUT));
                         break;
                     case 5:
                         askForTitle();
                         input = getUserInput();
-                        theLibrary.processPublication(input, Publication.actions.CHECKOUT, Library.publicationType.MOVIE, userid);
+                        processStatus = theLibrary.processPublication(input, Library.actions.CHECKOUT, Library.publicationType.MOVIE, userid);
+                        printNotification(Library.actions.CHECKOUT, processStatus, false);
                         break;
                     case 6:
                         User toDisp = getUser(accounts, userid);
@@ -133,14 +179,12 @@ public class BibliotecaApp {
         } while (status != menuStatuses.QUIT);
     }
 
-    //What to do with this?
     static void listBooks(ArrayList<String> bookList) {
         for(String title: bookList) {
             System.out.printf("%s\n", title);
         }
     }
 
-    //Refactor below to Accounts?
     static void promptLogin() {
         System.out.print("Enter login id: ");
     }
