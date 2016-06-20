@@ -10,6 +10,8 @@ public abstract class Publication {
     protected String title;
     protected String creator;
     protected String year;
+
+    //refactor out these 2...
     protected boolean onLoan;
     protected String borrower;
 

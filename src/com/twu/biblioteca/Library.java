@@ -2,12 +2,12 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class Library {
+class Library {
     enum publicationType {BOOK, MOVIE}
     private ArrayList<Publication> availableBooks;
     private ArrayList<Publication> availableMovies;
 
-    public Library() {
+    Library() {
         availableBooks = new ArrayList<Publication>();
         availableBooks.add(new Book("TW101", "ThoughtWorkers", "2012"));
         availableBooks.add(new Book("Just in time debug", "Various", "2011"));
@@ -30,7 +30,7 @@ public class Library {
         return null;
     }
 
-    public void listPublicationDetails(publicationType type) {
+    void listPublicationDetails(publicationType type) {
         ArrayList<Publication> pubList = getPublicationList(type);
 
         for(Publication pub: pubList) {
@@ -52,7 +52,7 @@ public class Library {
         return -1;
     }
 
-    public boolean processPublication(String input, Publication.actions action, publicationType type, String userid) {
+    boolean processPublication(String input, Publication.actions action, publicationType type, String userid) {
         ArrayList<Publication> pubList = getPublicationList(type);
 
         int index = findPublicationByTitle(input, type);

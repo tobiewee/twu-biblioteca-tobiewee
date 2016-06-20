@@ -133,13 +133,14 @@ public class BibliotecaApp {
         } while (status != menuStatuses.QUIT);
     }
 
-    //TO REFACTOR OUT...maybe...
+    //What to do with this?
     static void listBooks(ArrayList<String> bookList) {
         for(String title: bookList) {
             System.out.printf("%s\n", title);
         }
     }
 
+    //Refactor below to Accounts?
     static void promptLogin() {
         System.out.print("Enter login id: ");
     }
