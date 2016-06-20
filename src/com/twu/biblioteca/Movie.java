@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Movie extends Publication {
+class Movie extends Publication {
     private static final int R_COL = 10;
     private String rating;
 

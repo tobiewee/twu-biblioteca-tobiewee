@@ -65,6 +65,12 @@ public class BibliotecaApp {
         }
     }
 
+    static void listBooks(ArrayList<String> bookList) {
+        for(String title: bookList) {
+            System.out.printf("%s\n", title);
+        }
+    }
+
     static void printNotification(Library.actions action, boolean success, boolean book){
         switch (action) {
             case CHECKOUT:
@@ -177,12 +183,6 @@ public class BibliotecaApp {
 
             System.out.println();
         } while (status != menuStatuses.QUIT);
-    }
-
-    static void listBooks(ArrayList<String> bookList) {
-        for(String title: bookList) {
-            System.out.printf("%s\n", title);
-        }
     }
 
     static void promptLogin() {

@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-public class Book extends Publication{
-    public Book(String title, String author, String year) {
+class Book extends Publication{
+    Book(String title, String author, String year) {
         super(title, author, year);
     }
 
@@ -10,7 +10,7 @@ public class Book extends Publication{
                 Y_COL + "s\n", title, creator, year);
     }
 
-    public String getAuthor() {
+    String getAuthor() {
         return creator;
     }
 }

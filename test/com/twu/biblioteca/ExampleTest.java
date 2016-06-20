@@ -5,7 +5,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -173,7 +175,7 @@ public class ExampleTest {
     }
 
     @Test
-    public void testBookClassPrintNotification() {
+    public void testPrintNotification() {
         //setup
         String chkoutBkSucc = "Thank you! Enjoy the book\n";
         String chkoutBkFail = "That book is not available.\n";
