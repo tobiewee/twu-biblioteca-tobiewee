@@ -241,26 +241,6 @@ public class ExampleTest {
     }
 
     @Test
-    public void testMovieClassSetRating() {
-        String rating = "5";
-        String notRated = "unrated";
-        String minRating = "1";
-        String maxRating = "10";
-        Movie test = new Movie("", "", "", "");
-        assertEquals(notRated, test.getRating());
-
-        assertEquals(rating, test.setRating(rating));
-        assertEquals(minRating, test.setRating("0"));
-        assertEquals(maxRating, test.setRating("11"));
-
-        String currentRating = test.getRating();
-        assertEquals(currentRating, test.setRating("asdf"));
-        assertEquals(currentRating, test.setRating(""));
-
-        assertEquals(notRated, test.setRating("unrated"));
-    }
-
-    @Test
     public void testCreateNewUser() {
         User test = userAccounts.get(0);
         assertTrue(test.isInit());

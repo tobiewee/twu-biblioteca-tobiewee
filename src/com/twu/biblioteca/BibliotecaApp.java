@@ -185,6 +185,7 @@ public class BibliotecaApp {
         } while (status != menuStatuses.QUIT);
     }
 
+    //Accounts Related
     static void promptLogin() {
         System.out.print("Enter login id: ");
     }

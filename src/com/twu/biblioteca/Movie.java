@@ -20,10 +20,8 @@ class Movie extends Publication {
             else
                 this.rating = rating;
         } catch (NumberFormatException e) {
-            if(rating.equals("unrated"))
-                this.rating = rating;
         } finally {
-            if (this.rating == null)
+            if (rating == null || rating.equals("unrated"))
                 this.rating = "unrated";
         }
 
