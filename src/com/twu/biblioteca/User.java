@@ -35,9 +35,7 @@ class User {
     }
 
     boolean verifyPassword(String password) {
-        if(this.password.equals(password))
-            return true;
-        return false;
+        return this.password.equals(password);
     }
 
     String getName() {

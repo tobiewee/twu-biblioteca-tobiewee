@@ -5,9 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -181,8 +179,6 @@ public class ExampleTest {
         String chkoutBkFail = "That book is not available.\n";
         String returnBkSucc = "Thank you for returning the book.\n";
         String returnBkFail = "That is not a valid book to return.\n";
-
-        Book test = (Book) bookList.get(0);
 
         BibliotecaApp.printNotification(Library.actions.CHECKOUT, true, true);
         assertEquals(chkoutBkSucc, testOutStream.toString());
